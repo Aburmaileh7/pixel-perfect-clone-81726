@@ -1,0 +1,47 @@
+import { createContext, useContext, useState, type ReactNode } from "react";
+
+/**
+ * Bilingual copy dictionary (EN / ES), mirroring the original page.
+ */
+export const translations = {
+  weGettingMarried: { en: "WE ARE GETTING MARRIED", es: "NOS CASAMOS" },
+  weddingDate: { en: "15.06.27", es: "15.06.27" },
+  addToCalendar: { en: "Add to calendar", es: "Añadir al calendario" },
+  madeWithLove: { en: "Made with love by", es: "Hecho con amor por" },
+  openEnvelope: { en: "OPEN ENVELOPE", es: "ABRIR SOBRE" },
+  envelopeAlt: { en: "Envelope with seal", es: "Sobre con sello" },
+  tapToOpen: { en: "Tap to open", es: "Toca para abrir" },
+  scratchToReveal: { en: "Scratch to\nreveal", es: "Rasca para\ndescubrir" },
+  days: { en: "Days", es: "Días" },
+  hours: { en: "Hours", es: "Horas" },
+  mins: { en: "Mins", es: "Min" },
+  calGoogle: { en: "Google", es: "Google" },
+  calApple: { en: "Apple / iOS", es: "Apple / iOS" },
+  calOutlook: { en: "Outlook / Other", es: "Outlook / Otro" },
+} as const;
+
+type Key = keyof typeof translations;
+type Lang = "en" | "es";
+
+interface LanguageContextValue {
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+  t: (key: Key) => string;
+}
+
+const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [lang, setLang] = useState<Lang>("en");
+  const t = (key: Key) => translations[key][lang];
+
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t }}>{children}</LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const ctx = useContext(LanguageContext);
+  if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
+  return ctx;
+}
