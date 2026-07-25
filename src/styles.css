@@ -5,20 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
+ * Design system — "Lace Photo Scratch" save-the-date.
  *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Palette is a warm parchment / champagne set sampled from the original page.
+ * Typography: Cormorant SC (display + small caps), Cormorant (body),
+ * Playfair Display italic (names). Loaded via <link> in src/routes/__root.tsx.
  */
 
 @theme inline {
+  --font-display: "Cormorant SC", serif;
+  --font-body: Cormorant, serif;
+  --font-names: "Playfair Display", serif;
+  --font-script: "Cormorant Garamond", serif;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +25,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -46,90 +46,55 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Page-specific semantic colours */
+  --color-ink: var(--ink);
+  --color-sepia: var(--sepia);
+  --color-cocoa: var(--cocoa);
+  --color-parchment: var(--parchment);
+  --color-granate: var(--granate);
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-shell: var(--shell);
+
+  --shadow-pill: var(--shadow-pill-value);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
+  --radius: 0.5rem;
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --background: oklch(0.936 0.02 84.5); /* #EFE7D6 linen */
+  --foreground: oklch(0.45 0.045 63); /* #654B31 */
+  --card: oklch(0.87 0.03 84);
+  --card-foreground: oklch(0.45 0.045 63);
+  --popover: oklch(0.98 0.012 90);
+  --popover-foreground: oklch(0.45 0.045 63);
+  --primary: oklch(0.45 0.045 63);
+  --primary-foreground: oklch(0.98 0.012 90);
+  --secondary: oklch(0.81 0.035 84);
+  --secondary-foreground: oklch(0.45 0.045 63);
+  --muted: oklch(0.89 0.02 84);
+  --muted-foreground: oklch(0.55 0.035 63);
+  --accent: oklch(0.86 0.03 84);
+  --accent-foreground: oklch(0.45 0.045 63);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.85 0.025 84);
+  --input: oklch(0.85 0.025 84);
+  --ring: oklch(0.45 0.045 63);
+
+  /* Sampled palette */
+  --ink: #654b31; /* primary warm brown text */
+  --sepia: #7a6a52; /* scratch hint text */
+  --cocoa: #5a3f24; /* calendar menu text */
+  --parchment: #e8d8b9; /* envelope backdrop */
+  --granate: #fffbf5; /* near-white accent */
+  --ivory: #f7f2e8;
+  --cream: #e0d3bb;
+  --shell: rgba(255, 252, 245, 0.92); /* calendar pill background */
+
+  --shadow-pill-value:
+    0 1px 6px rgba(90, 63, 36, 0.12), inset 0 0 0 1px rgba(90, 63, 36, 0.15);
 }
 
 @layer base {
@@ -137,8 +102,34 @@
     border-color: var(--color-border);
   }
 
+  html,
+  body {
+    /* Single-screen experience: no page scrolling on the original either. */
+    overscroll-behavior: none;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
   }
+}
+
+/* Font-family utilities matching the original class names. */
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility font-body {
+  font-family: var(--font-body);
+}
+
+@utility font-names {
+  font-family: var(--font-names);
+}
+
+@utility font-script {
+  font-family: var(--font-script);
+  font-style: italic;
 }
