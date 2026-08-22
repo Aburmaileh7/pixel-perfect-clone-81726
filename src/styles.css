@@ -57,6 +57,10 @@
   --color-cream: var(--cream);
   --color-shell: var(--shell);
 
+  /* Sage accent used for location card */
+  --color-sage: var(--sage);
+  --color-sage-dark: var(--sage-dark);
+
   --shadow-pill: var(--shadow-pill-value);
 }
 
