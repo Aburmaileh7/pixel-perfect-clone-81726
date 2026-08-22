@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
+import { MapPin, Clock, Calendar } from "lucide-react";
 
 import { ScratchCard } from "@/components/ScratchCard";
 import { Countdown } from "@/components/Countdown";
@@ -10,12 +11,17 @@ import heroFrame from "@/assets/hero-frame.png";
 import heroOvalMask from "@/assets/hero-oval-mask.png";
 import cupidLogo from "@/assets/cupid-logo.png";
 import linenTexture from "@/assets/linen-texture.jpg";
+import venueImage from "@/assets/finca-biniagual.jpg";
 
 /** Static wedding details rendered after the reveal. */
 const WEDDING = {
   names: "Clara & Hugo",
-  location: "Villa Montalcino",
-  startIso: "2027-06-15T16:00:00Z",
+  location: "Finca Biniagual",
+  address: "Finca Biniagual, Mallorca",
+  startIso: "2027-05-08T15:00:00Z",
+  endIso: "2027-05-08T23:00:00Z",
+  dateLabel: "08.05.27",
+  mapsUrl: "https://maps.app.goo.gl/VtAAUvZfTa636EFa6",
 };
 
 const GOLD = ["#e8d9bb", "#dec8a0", "#f0e1c0", "#d6c39a"];
@@ -85,6 +91,13 @@ function celebrate() {
   frame();
 }
 
+function googleCalendarUrl() {
+  const text = encodeURIComponent(`Boda ${WEDDING.names}`);
+  const dates = `${WEDDING.startIso.replace(/[-:]/g, "").replace(/\.\d{3}Z/, "Z")}/${WEDDING.endIso.replace(/[-:]/g, "").replace(/\.\d{3}Z/, "Z")}`;
+  const location = encodeURIComponent(WEDDING.address);
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&location=${location}`;
+}
+
 /**
  * The scratch-to-reveal scene: linen background, oval photo frame, tinted
  * vignette layers and the glitter scratch canvas on top.
@@ -116,7 +129,6 @@ export function ScratchScene() {
     };
   }, []);
 
-
   const maskLayer = {
     WebkitMaskImage: `url(${heroOvalMask})`,
     maskImage: `url(${heroOvalMask})`,
@@ -130,7 +142,7 @@ export function ScratchScene() {
 
   return (
     <section
-      className="relative flex min-h-[100svh] items-start justify-center overflow-hidden pb-[max(env(safe-area-inset-bottom),5rem)] pt-[max(env(safe-area-inset-top),1rem)]"
+      className="relative flex min-h-[100svh] flex-col items-center overflow-y-auto pb-[max(env(safe-area-inset-bottom),5rem)] pt-[max(env(safe-area-inset-top),1rem)]"
       style={{
         backgroundImage: `url(${linenTexture})`,
         backgroundSize: "cover",
@@ -248,7 +260,7 @@ export function ScratchScene() {
         )}
       </AnimatePresence>
 
-      {/* Announcement + calendar actions */}
+      {/* Announcement + countdown + location */}
       <AnimatePresence>
         {revealed && (
           <motion.div
@@ -256,9 +268,9 @@ export function ScratchScene() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="absolute bottom-[calc(7rem+1vh-1cm)] left-0 right-0 z-20 mx-auto flex w-fit flex-col items-center"
+            className="relative z-20 mx-auto w-full max-w-[540px] px-4 pb-12"
           >
-            <div className="mb-5 px-6 text-center">
+            <div className="mb-6 px-6 text-center">
               <p className="font-display mb-2 text-xs uppercase tracking-[0.35em] text-ink md:text-xs">
                 {t("weGettingMarried")}
               </p>
@@ -266,7 +278,7 @@ export function ScratchScene() {
                 {WEDDING.names}
               </h1>
               <p className="font-display mb-2 text-sm uppercase tracking-[0.25em] text-ink md:text-sm">
-                {t("weddingDate")}
+                {WEDDING.dateLabel}
               </p>
               <p className="font-display mb-3 text-[10px] uppercase tracking-[0.25em] text-ink/75 md:text-xs">
                 {WEDDING.location}
@@ -276,11 +288,74 @@ export function ScratchScene() {
               <Countdown target={WEDDING.startIso} className="mt-2" />
             </div>
 
+            {/* Location card */}
+            <div className="rounded-lg border border-sage/30 bg-white/80 p-8 text-center shadow-sm backdrop-blur-sm md:p-12">
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-sage/30">
+                <MapPin className="h-7 w-7 text-sage-dark" />
+              </div>
 
+              <h3 className="font-display mb-4 text-2xl text-sage-dark">{t("location")}</h3>
+
+              <div className="mb-6 space-y-3">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="font-display text-xl text-sage-dark">{t("venueName")}</span>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-2 text-sage-dark/70">
+                  <Clock className="h-4 w-4" />
+                  <span className="font-body">{t("hours")}</span>
+                </div>
+              </div>
+
+              <div className="group relative mb-6 overflow-hidden rounded-lg border border-sage/30">
+                <img
+                  src={venueImage}
+                  alt={t("venueImageAlt")}
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                  className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-80"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-sage-dark/40 via-transparent to-transparent" />
+              </div>
+
+              <div className="mb-6 overflow-hidden rounded-lg border border-sage/30">
+                <iframe
+                  src="https://www.google.com/maps?q=Finca%20Biniagual&output=embed"
+                  width="100%"
+                  height={200}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={t("mapTitle")}
+                  className="sepia-[0.15] transition-all duration-500 hover:sepia-0"
+                  style={{ border: 0 }}
+                />
+              </div>
+
+              <div className="flex flex-col justify-center gap-3 sm:flex-row">
+                <a
+                  href={WEDDING.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark ring-offset-background transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <MapPin className="h-4 w-4" />
+                  {t("openInMaps")}
+                </a>
+                <a
+                  href={googleCalendarUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark ring-offset-background transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <Calendar className="h-4 w-4" />
+                  {t("addToCalendar")}
+                </a>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-
     </section>
   );
 }
