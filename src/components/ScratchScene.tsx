@@ -99,7 +99,6 @@ export function ScratchScene() {
   const [scratchStarted, setScratchStarted] = useState(false);
   const startedRef = useRef(false);
   const [revealed, setRevealed] = useState(false);
-  const [calendarOpen, setCalendarOpen] = useState(false);
   const [frameLoaded, setFrameLoaded] = useState(false);
   const [maskLoaded, setMaskLoaded] = useState(false);
   const ready = frameLoaded && maskLoaded;
@@ -122,54 +121,6 @@ export function ScratchScene() {
     };
   }, []);
 
-  const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-    WEDDING.calendarTitle,
-  )}&dates=${WEDDING.start}/${WEDDING.end}&details=${encodeURIComponent(
-    WEDDING.calendarDescription,
-  )}`;
-  const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(
-    WEDDING.calendarTitle,
-  )}&body=${encodeURIComponent(
-    WEDDING.calendarDescription,
-  )}&startdt=2027-06-15T16:00:00Z&enddt=2027-06-15T23:00:00Z`;
-
-  // Build an .ics blob URL for Apple / generic calendar clients.
-  const [icsUrl, setIcsUrl] = useState("");
-  useEffect(() => {
-    const ics = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//The Digital Yes//Wedding//EN",
-      "CALSCALE:GREGORIAN",
-      "METHOD:PUBLISH",
-      "BEGIN:VEVENT",
-      "UID:clara-hugo-2027-06-15@thedigitalyes.com",
-      "DTSTAMP:20260101T000000Z",
-      `DTSTART:${WEDDING.start}`,
-      `DTEND:${WEDDING.end}`,
-      `SUMMARY:${WEDDING.calendarTitle}`,
-      `DESCRIPTION:${WEDDING.calendarDescription}`,
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n");
-    const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
-    setIcsUrl(url);
-    return () => URL.revokeObjectURL(url);
-  }, []);
-
-  const isApple = () => {
-    if (typeof navigator === "undefined") return false;
-    const ua = navigator.userAgent;
-    return /iPad|iPhone|iPod/.test(ua) || (/Mac/.test(ua) && "ontouchend" in document);
-  };
-
-  const handleAppleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    setCalendarOpen(false);
-    if (isApple()) {
-      event.preventDefault();
-      if (icsUrl) window.open(icsUrl, "_blank");
-    }
-  };
 
   const maskLayer = {
     WebkitMaskImage: `url(${heroOvalMask})`,
@@ -331,69 +282,10 @@ export function ScratchScene() {
             </div>
 
 
-            <AnimatePresence>
-              {calendarOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 6 }}
-                  transition={{ duration: 0.2 }}
-                  className="mb-2 flex min-w-[160px] flex-col items-stretch overflow-hidden rounded-xl border border-granate/20 bg-ivory shadow-lg"
-                >
-                  <a
-                    href={googleUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setCalendarOpen(false)}
-                    className="font-display px-4 py-2 text-center text-[10px] uppercase tracking-[0.25em] text-cocoa hover:bg-cocoa/10"
-                  >
-                    {t("calGoogle")}
-                  </a>
-                  <a
-                    href={icsUrl || "#"}
-                    download="clara-hugo-wedding.ics"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleAppleClick}
-                    className="font-display border-t border-cocoa/10 px-4 py-2 text-center text-[10px] uppercase tracking-[0.25em] text-cocoa hover:bg-cocoa/10"
-                  >
-                    {t("calApple")}
-                  </a>
-                  <a
-                    href={outlookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setCalendarOpen(false)}
-                    className="font-display border-t border-cocoa/10 px-4 py-2 text-center text-[10px] uppercase tracking-[0.25em] text-cocoa hover:bg-cocoa/10"
-                  >
-                    {t("calOutlook")}
-                  </a>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <button
-              type="button"
-              onClick={() => setCalendarOpen((open) => !open)}
-              className="font-display inline-flex w-fit items-center justify-center whitespace-nowrap rounded-full bg-shell px-5 py-2 text-[9px] uppercase tracking-[0.35em] text-cocoa shadow-pill transition-all hover:brightness-95 md:text-[10px]"
-            >
-              {t("addToCalendar")}
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <p className="font-body absolute bottom-[calc(4rem+3vh-1cm)] left-0 right-0 z-20 mx-auto w-fit text-xs italic text-ink/80">
-        {t("madeWithLove")}{" "}
-        <a
-          href="https://thedigitalyes.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline transition-colors hover:text-ink"
-        >
-          The Digital Yes
-        </a>
-      </p>
     </section>
   );
 }
