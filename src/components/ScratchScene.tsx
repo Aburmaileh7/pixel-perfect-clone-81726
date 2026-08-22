@@ -15,12 +15,7 @@ import linenTexture from "@/assets/linen-texture.jpg";
 const WEDDING = {
   names: "Clara & Hugo",
   location: "Villa Montalcino",
-  calendarTitle: "Boda Clara & Hugo",
-  calendarDescription: "La boda de Clara y Hugo",
-  start: "20270615T160000Z",
-  end: "20270615T230000Z",
   startIso: "2027-06-15T16:00:00Z",
-
 };
 
 const GOLD = ["#e8d9bb", "#dec8a0", "#f0e1c0", "#d6c39a"];

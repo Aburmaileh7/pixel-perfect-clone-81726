@@ -6,8 +6,6 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 export const translations = {
   weGettingMarried: { en: "WE ARE GETTING MARRIED", es: "NOS CASAMOS" },
   weddingDate: { en: "15.06.27", es: "15.06.27" },
-  addToCalendar: { en: "Add to calendar", es: "Añadir al calendario" },
-  madeWithLove: { en: "Made with love by", es: "Hecho con amor por" },
   openEnvelope: { en: "OPEN ENVELOPE", es: "ABRIR SOBRE" },
   envelopeAlt: { en: "Envelope with seal", es: "Sobre con sello" },
   tapToOpen: { en: "Tap to open", es: "Toca para abrir" },
@@ -18,10 +16,6 @@ export const translations = {
   secs: { en: "Secs", es: "Seg" },
   today: { en: "Today is the day", es: "¡Hoy es el día!" },
   countdownTitle: { en: "Counting down", es: "Cuenta atrás" },
-
-  calGoogle: { en: "Google", es: "Google" },
-  calApple: { en: "Apple / iOS", es: "Apple / iOS" },
-  calOutlook: { en: "Outlook / Other", es: "Outlook / Otro" },
 } as const;
 
 type Key = keyof typeof translations;
