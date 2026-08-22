@@ -16,6 +16,13 @@ export const translations = {
   secs: { en: "Secs", es: "Seg" },
   today: { en: "Today is the day", es: "¡Hoy es el día!" },
   countdownTitle: { en: "Counting down", es: "Cuenta atrás" },
+  location: { en: "Location", es: "Localización" },
+  venueName: { en: "Finca Biniagual", es: "Finca Biniagual" },
+  hours: { en: "From 5:00 PM to 1:00 AM", es: "De 17:00h a 01:00h" },
+  openInMaps: { en: "Open in Maps", es: "Abrir en Maps" },
+  addToCalendar: { en: "Add to calendar", es: "Añadir al calendario" },
+  venueImageAlt: { en: "Finca Biniagual - Aerial view", es: "Finca Biniagual - Vista aérea" },
+  mapTitle: { en: "Map of Finca Biniagual", es: "Mapa de Finca Biniagual" },
 } as const;
 
 type Key = keyof typeof translations;
