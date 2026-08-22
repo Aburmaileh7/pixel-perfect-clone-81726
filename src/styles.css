@@ -97,6 +97,10 @@
   --cream: #e0d3bb;
   --shell: rgba(255, 252, 245, 0.92); /* calendar pill background */
 
+  /* Sage green accent */
+  --sage: #8a9a7a;
+  --sage-dark: #5e6b52;
+
   --shadow-pill-value:
     0 1px 6px rgba(90, 63, 36, 0.12), inset 0 0 0 1px rgba(90, 63, 36, 0.15);
 }
