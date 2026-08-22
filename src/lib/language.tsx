@@ -15,6 +15,10 @@ export const translations = {
   days: { en: "Days", es: "Días" },
   hours: { en: "Hours", es: "Horas" },
   mins: { en: "Mins", es: "Min" },
+  secs: { en: "Secs", es: "Seg" },
+  today: { en: "Today is the day", es: "¡Hoy es el día!" },
+  countdownTitle: { en: "Counting down", es: "Cuenta atrás" },
+
   calGoogle: { en: "Google", es: "Google" },
   calApple: { en: "Apple / iOS", es: "Apple / iOS" },
   calOutlook: { en: "Outlook / Other", es: "Outlook / Otro" },
