@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
 
 import { ScratchCard } from "@/components/ScratchCard";
+import { Countdown } from "@/components/Countdown";
+
 import { useLanguage } from "@/lib/language";
 import heroFrame from "@/assets/hero-frame.png";
 import heroOvalMask from "@/assets/hero-oval-mask.png";
@@ -17,6 +19,8 @@ const WEDDING = {
   calendarDescription: "La boda de Clara y Hugo",
   start: "20270615T160000Z",
   end: "20270615T230000Z",
+  startIso: "2027-06-15T16:00:00Z",
+
 };
 
 const GOLD = ["#e8d9bb", "#dec8a0", "#f0e1c0", "#d6c39a"];
@@ -321,7 +325,11 @@ export function ScratchScene() {
               <p className="font-display mb-3 text-[10px] uppercase tracking-[0.25em] text-ink/75 md:text-xs">
                 {WEDDING.location}
               </p>
+
+              <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
+              <Countdown target={WEDDING.startIso} className="mt-2" />
             </div>
+
 
             <AnimatePresence>
               {calendarOpen && (
