@@ -141,3 +141,19 @@
   font-family: var(--font-script);
   font-style: italic;
 }
+
+@utility text-sage {
+  color: var(--color-sage);
+}
+
+@utility text-sage-dark {
+  color: var(--color-sage-dark);
+}
+
+@utility bg-sage {
+  background-color: var(--color-sage);
+}
+
+@utility border-sage {
+  border-color: var(--color-sage);
+}
