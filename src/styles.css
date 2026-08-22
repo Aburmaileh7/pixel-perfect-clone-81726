@@ -57,6 +57,10 @@
   --color-cream: var(--cream);
   --color-shell: var(--shell);
 
+  /* Sage accent used for location card */
+  --color-sage: var(--sage);
+  --color-sage-dark: var(--sage-dark);
+
   --shadow-pill: var(--shadow-pill-value);
 }
 
@@ -92,6 +96,10 @@
   --ivory: #f7f2e8;
   --cream: #e0d3bb;
   --shell: rgba(255, 252, 245, 0.92); /* calendar pill background */
+
+  /* Sage green accent */
+  --sage: #8a9a7a;
+  --sage-dark: #5e6b52;
 
   --shadow-pill-value:
     0 1px 6px rgba(90, 63, 36, 0.12), inset 0 0 0 1px rgba(90, 63, 36, 0.15);
@@ -132,4 +140,20 @@
 @utility font-script {
   font-family: var(--font-script);
   font-style: italic;
+}
+
+@utility text-sage {
+  color: var(--color-sage);
+}
+
+@utility text-sage-dark {
+  color: var(--color-sage-dark);
+}
+
+@utility bg-sage {
+  background-color: var(--color-sage);
+}
+
+@utility border-sage {
+  border-color: var(--color-sage);
 }
