@@ -22,7 +22,7 @@ export function EnvelopeIntro({ onEnter, onInteraction }: EnvelopeIntroProps) {
   const [videoVisible, setVideoVisible] = useState(false);
   const [finished, setFinished] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   // Warm the browser cache for the next scene while the user is still here.
   useEffect(() => {
@@ -84,7 +84,7 @@ export function EnvelopeIntro({ onEnter, onInteraction }: EnvelopeIntroProps) {
             animate={{ opacity: [0.5, 1, 0.5] }}
             exit={{ opacity: 0 }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="font-display absolute bottom-[max(env(safe-area-inset-bottom),2rem)] left-0 right-0 z-10 mx-auto w-fit text-[10px] uppercase tracking-[0.4em] text-granate"
+            className={`absolute bottom-[max(env(safe-area-inset-bottom),2rem)] left-0 right-0 z-10 mx-auto w-fit text-[10px] tracking-[0.4em] text-granate ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
           >
             {t("tapToOpen")}
           </motion.span>

@@ -1,35 +1,43 @@
-import { createContext, useContext, useState, type Context, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type Context, type ReactNode } from "react";
 
 /**
- * Bilingual copy dictionary (EN / ES), mirroring the original page.
+ * Bilingual copy dictionary (EN / AR), mirroring the original page.
  */
 export const translations = {
-  weGettingMarried: { en: "WE ARE GETTING MARRIED", es: "NOS CASAMOS" },
-  weddingDate: { en: "15.06.27", es: "15.06.27" },
-  openEnvelope: { en: "OPEN ENVELOPE", es: "ABRIR SOBRE" },
-  envelopeAlt: { en: "Envelope with seal", es: "Sobre con sello" },
-  tapToOpen: { en: "Tap to open", es: "Toca para abrir" },
-  scratchToReveal: { en: "Scratch to\nreveal", es: "Rasca para\ndescubrir" },
-  days: { en: "Days", es: "Días" },
-  hours: { en: "Hours", es: "Horas" },
-  mins: { en: "Mins", es: "Min" },
-  secs: { en: "Secs", es: "Seg" },
-  today: { en: "Today is the day", es: "¡Hoy es el día!" },
-  countdownTitle: { en: "Counting down", es: "Cuenta atrás" },
-  location: { en: "Location", es: "Localización" },
-  venueName: { en: "Finca Biniagual", es: "Finca Biniagual" },
-  venueHours: { en: "From 5:00 PM to 1:00 AM", es: "De 17:00h a 01:00h" },
-  openInMaps: { en: "Open in Maps", es: "Abrir en Maps" },
-  addToCalendar: { en: "Add to calendar", es: "Añadir al calendario" },
-  venueImageAlt: { en: "Finca Biniagual - Aerial view", es: "Finca Biniagual - Vista aérea" },
-  mapTitle: { en: "Map of Finca Biniagual", es: "Mapa de Finca Biniagual" },
+  weGettingMarried: { en: "WE ARE GETTING MARRIED", ar: "حفل زفافنا" },
+  weddingDate: { en: "10.09.26", ar: "10.09.26" },
+  openEnvelope: { en: "OPEN ENVELOPE", ar: "افتح الظرف" },
+  envelopeAlt: { en: "Envelope with seal", ar: "ظرف مختوم" },
+  tapToOpen: { en: "Tap to open", ar: "اضغط للفتح" },
+  scratchToReveal: { en: "Scratch to\nreveal", ar: "اِحكّ\nللكشف" },
+  days: { en: "Days", ar: "أيام" },
+  hours: { en: "Hours", ar: "ساعات" },
+  mins: { en: "Mins", ar: "دقائق" },
+  secs: { en: "Secs", ar: "ثواني" },
+  today: { en: "Today is the day", ar: "اليوم هو اليوم!" },
+  countdownTitle: { en: "Counting down", ar: "العد التنازلي" },
+
+  // Couple + venue details (translated, replacing the old hardcoded strings)
+  coupleNames: { en: "Omar & His Bride", ar: "عمر و كريمته" },
+  venueLabel: { en: "Location", ar: "المكان" },
+  venueName: { en: "Al Yousefi Palace", ar: "قصر اليوسفي" },
+  venueAddress: { en: "Al-Jubeiha, Yajouz Street, Amman", ar: "الجبيهة، شارع ياجوز، عمّان" },
+  venueHours: { en: "From 9:00 PM to Midnight", ar: "من الساعة 9:00 مساءً حتى منتصف الليل" },
+  openInMaps: { en: "Open in Maps", ar: "افتح في الخرائط" },
+  addToCalendar: { en: "Add to calendar", ar: "أضف إلى التقويم" },
+  venueImageAlt: { en: "Al Yousefi Palace - view", ar: "قصر اليوسفي - صورة" },
+  mapTitle: { en: "Map of Al Yousefi Palace", ar: "خريطة قصر اليوسفي" },
 } as const;
 
 type Key = keyof typeof translations;
-type Lang = "en" | "es";
+type Lang = "en" | "ar";
+type Dir = "ltr" | "rtl";
+
+const DIR_BY_LANG: Record<Lang, Dir> = { en: "ltr", ar: "rtl" };
 
 interface LanguageContextValue {
   lang: Lang;
+  dir: Dir;
   setLang: (lang: Lang) => void;
   t: (key: Key) => string;
 }
@@ -47,15 +55,26 @@ const LanguageContext =
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
+  const dir = DIR_BY_LANG[lang];
   const t = (key: Key) => translations[key][lang];
 
+  // Keep <html lang> / <html dir> in sync with the active language so RTL
+  // layout, browser find-in-page and screen readers all behave correctly.
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = dir;
+  }, [lang, dir]);
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>{children}</LanguageContext.Provider>
+    <LanguageContext.Provider value={{ lang, dir, setLang, t }}>
+      {children}
+    </LanguageContext.Provider>
   );
 }
 
 const fallback: LanguageContextValue = {
   lang: "en",
+  dir: "ltr",
   setLang: () => {},
   t: (key: Key) => translations[key].en,
 };
@@ -65,4 +84,3 @@ export function useLanguage() {
   // blank the whole page.
   return useContext(LanguageContext) ?? fallback;
 }
-

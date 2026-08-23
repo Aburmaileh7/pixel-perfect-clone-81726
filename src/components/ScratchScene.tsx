@@ -13,11 +13,12 @@ import cupidLogo from "@/assets/cupid-logo.png";
 import linenTexture from "@/assets/linen-texture.jpg";
 import venueImage from "@/assets/finca-biniagual.jpg";
 
-/** Static wedding details rendered after the reveal. */
+/**
+ * Static wedding details that don't change with language (dates, links).
+ * Names / venue / address are translated — see translations.coupleNames,
+ * translations.venueName, translations.venueAddress in lib/language.tsx.
+ */
 const WEDDING = {
-  names: "Omar & كريمته",
-  location: "قصر اليوسفي",
-  address: "Aljubiha, شارع ياجوز، عمّان",
   startIso: "2026-09-10T21:00:00Z",
   endIso: "2026-09-10T23:59:00Z",
   dateLabel: "10.09.26",
@@ -91,10 +92,10 @@ function celebrate() {
   frame();
 }
 
-function googleCalendarUrl() {
-  const text = encodeURIComponent(`Boda ${WEDDING.names}`);
+function googleCalendarUrl(names: string, address: string) {
+  const text = encodeURIComponent(names);
   const dates = `${WEDDING.startIso.replace(/[-:]/g, "").replace(/\.\d{3}Z/, "Z")}/${WEDDING.endIso.replace(/[-:]/g, "").replace(/\.\d{3}Z/, "Z")}`;
-  const location = encodeURIComponent(WEDDING.address);
+  const location = encodeURIComponent(address);
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&location=${location}`;
 }
 
@@ -103,7 +104,8 @@ function googleCalendarUrl() {
  * vignette layers and the glitter scratch canvas on top.
  */
 export function ScratchScene() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const namesFontClass = lang === "ar" ? "font-arabic" : "font-names italic";
   const [scratchStarted, setScratchStarted] = useState(false);
   const startedRef = useRef(false);
   const [revealed, setRevealed] = useState(false);
@@ -209,7 +211,7 @@ export function ScratchScene() {
                   <motion.span
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                    className="font-display max-w-[82%] -translate-y-[5%] whitespace-pre-line text-center text-[13.5px] font-semibold uppercase tracking-[0.25em] text-sepia md:text-[15.5px]"
+                    className={`max-w-[82%] -translate-y-[5%] whitespace-pre-line text-center text-[13.5px] font-semibold tracking-[0.25em] text-sepia md:text-[15.5px] ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
                   >
                     {t("scratchToReveal")}
                   </motion.span>
@@ -271,17 +273,21 @@ export function ScratchScene() {
             className="relative z-20 mx-auto w-full max-w-[540px] px-4 pb-12"
           >
             <div className="mb-6 px-6 text-center">
-              <p className="font-display mb-2 text-xs uppercase tracking-[0.35em] text-ink md:text-xs">
+              <p
+                className={`mb-2 text-xs tracking-[0.35em] text-ink md:text-xs ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
+              >
                 {t("weGettingMarried")}
               </p>
-              <h1 className="font-names mb-1 text-3xl italic text-ink md:text-4xl">
-                {WEDDING.names}
+              <h1 className={`${namesFontClass} mb-1 text-3xl text-ink md:text-4xl`}>
+                {t("coupleNames")}
               </h1>
               <p className="font-display mb-2 text-sm uppercase tracking-[0.25em] text-ink md:text-sm">
                 {WEDDING.dateLabel}
               </p>
-              <p className="font-display mb-3 text-[10px] uppercase tracking-[0.25em] text-ink/75 md:text-xs">
-                {WEDDING.location}
+              <p
+                className={`mb-3 text-[10px] tracking-[0.25em] text-ink/75 md:text-xs ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
+              >
+                {t("venueName")}
               </p>
 
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
@@ -294,15 +300,25 @@ export function ScratchScene() {
                 <MapPin className="h-7 w-7 text-sage-dark" />
               </div>
 
-              <h3 className="font-display mb-4 text-2xl text-sage-dark">{t("location")}</h3>
+              <h3
+                className={`mb-4 text-2xl text-sage-dark ${lang === "ar" ? "font-arabic" : "font-display"}`}
+              >
+                {t("venueLabel")}
+              </h3>
 
               <div className="mb-6 space-y-3">
                 <div className="flex items-center justify-center gap-2">
-                  <span className="font-display text-xl text-sage-dark">{t("venueName")}</span>
+                  <span
+                    className={`text-xl text-sage-dark ${lang === "ar" ? "font-arabic" : "font-display"}`}
+                  >
+                    {t("venueName")}
+                  </span>
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-2 text-sage-dark/70">
                   <Clock className="h-4 w-4" />
-                  <span className="font-body">{t("venueHours")}</span>
+                  <span className={lang === "ar" ? "font-arabic" : "font-body"}>
+                    {t("venueHours")}
+                  </span>
                 </div>
               </div>
 
@@ -334,20 +350,20 @@ export function ScratchScene() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark ring-offset-background transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className={`inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark ring-offset-background transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${lang === "ar" ? "font-arabic" : ""}`}
                 >
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                <a
-                  href={googleCalendarUrl()}
+                
+                  href={googleCalendarUrl(t("coupleNames"), t("venueAddress"))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark ring-offset-background transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className={`inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark ring-offset-background transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${lang === "ar" ? "font-arabic" : ""}`}
                 >
                   <Calendar className="h-4 w-4" />
                   {t("addToCalendar")}
