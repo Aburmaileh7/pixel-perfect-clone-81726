@@ -320,7 +320,8 @@ export function ScratchScene() {
 
               <div className="mb-6 overflow-hidden rounded-lg border border-sage/30">
                 <iframe
-                  src="https://www.google.com/maps?q=Finca%20Biniagual&output=embed"
+                  //src="https://www.google.com/maps?q=Finca%20Biniagual&output=embed"
+                  src="https://maps.app.goo.gl/CWVN3PA7rHhY2wzS9?g_st=aw"
                   width="100%"
                   height={200}
                   allowFullScreen
