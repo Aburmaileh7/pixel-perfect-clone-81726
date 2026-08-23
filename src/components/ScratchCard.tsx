@@ -41,7 +41,9 @@ export function ScratchCard({
   const initialOpaqueRef = useRef<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const drawingRef = useRef(false);
+  const drawingStartedRef = useRef(false);
   const lastPointRef = useRef<{ x: number; y: number } | null>(null);
+
 
   /** Count opaque pixels on a subsampled grid (cheap coverage estimate). */
   const countOpaque = () => {
