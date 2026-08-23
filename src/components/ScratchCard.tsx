@@ -41,7 +41,9 @@ export function ScratchCard({
   const initialOpaqueRef = useRef<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const drawingRef = useRef(false);
+  const drawingStartedRef = useRef(false);
   const lastPointRef = useRef<{ x: number; y: number } | null>(null);
+
 
   /** Count opaque pixels on a subsampled grid (cheap coverage estimate). */
   const countOpaque = () => {
@@ -208,10 +210,16 @@ export function ScratchCard({
     };
 
     const resize = () => {
+      // Never repaint once the user started scratching: a repaint would restore
+      // the foil (duplicated cover) over already-cleared areas.
+      if (drawingStartedRef.current || revealedRef.current) return;
       const dpr = window.devicePixelRatio || 1;
       const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
+      const w = Math.round(rect.width * dpr);
+      const h = Math.round(rect.height * dpr);
+      if (canvas.width === w && canvas.height === h) return;
+      canvas.width = w;
+      canvas.height = h;
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
       ctx.scale(dpr, dpr);
@@ -220,7 +228,12 @@ export function ScratchCard({
 
     resize();
     window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    window.addEventListener("orientationchange", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("orientationchange", resize);
+    };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, imageSrc, maskSrc, glitter]);
 
@@ -235,6 +248,7 @@ export function ScratchCard({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    drawingStartedRef.current = true;
     onScratchStart?.();
 
     ctx.globalCompositeOperation = "destination-out";
