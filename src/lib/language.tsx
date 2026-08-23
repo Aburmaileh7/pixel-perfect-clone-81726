@@ -38,7 +38,7 @@ interface LanguageContextValue {
 // instance) never produce two distinct contexts, which would make consumers
 // read `undefined` even though a provider is mounted above them.
 const globalStore = globalThis as typeof globalThis & {
-  __languageContext?: React.Context<LanguageContextValue | undefined>;
+  __languageContext?: Context<LanguageContextValue | undefined>;
 };
 
 const LanguageContext =
