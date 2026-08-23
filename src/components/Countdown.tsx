@@ -32,7 +32,7 @@ const compute = (target: number): Parts => {
 const pad = (value: number) => value.toString().padStart(2, "0");
 
 /** A single flip-in unit (value + label). */
-function Unit({ value, label }: { value: string; label: string }) {
+function Unit({ value, label, arabic }: { value: string; label: string; arabic: boolean }) {
   return (
     <div className="flex min-w-[3.1rem] flex-col items-center md:min-w-[3.6rem]">
       <div className="relative h-[1.6em] overflow-hidden text-[26px] leading-[1.6em] tabular-nums text-ink md:text-[30px]">
@@ -44,12 +44,15 @@ function Unit({ value, label }: { value: string; label: string }) {
             exit={{ y: "-60%", opacity: 0 }}
             transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
             className="font-names block italic"
+            dir="ltr"
           >
             {value}
           </motion.span>
         </AnimatePresence>
       </div>
-      <span className="font-display mt-1 text-[8.5px] uppercase tracking-[0.3em] text-ink/70 md:text-[9.5px]">
+      <span
+        className={`mt-1 text-[8.5px] tracking-[0.3em] text-ink/70 md:text-[9.5px] ${arabic ? "font-arabic" : "font-display uppercase"}`}
+      >
         {label}
       </span>
     </div>
@@ -61,7 +64,8 @@ function Unit({ value, label }: { value: string; label: string }) {
  * clock so it never drifts) and animates each changing digit group.
  */
 export function Countdown({ target, className = "" }: CountdownProps) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const arabic = lang === "ar";
   const targetMs = typeof target === "string" ? Date.parse(target) : target.getTime();
   const [parts, setParts] = useState<Parts>(() => compute(targetMs));
 
@@ -79,7 +83,7 @@ export function Countdown({ target, className = "" }: CountdownProps) {
   if (parts.done) {
     return (
       <p
-        className={`font-display text-[10px] uppercase tracking-[0.3em] text-ink md:text-xs ${className}`}
+        className={`text-[10px] tracking-[0.3em] text-ink md:text-xs ${arabic ? "font-arabic" : "font-display uppercase"} ${className}`}
       >
         {t("today")}
       </p>
@@ -91,21 +95,22 @@ export function Countdown({ target, className = "" }: CountdownProps) {
       className={`flex items-start justify-center gap-1 ${className}`}
       role="timer"
       aria-live="off"
+      dir="ltr"
       aria-label={`${parts.days} ${t("days")}, ${parts.hours} ${t("hours")}, ${parts.mins} ${t("mins")}, ${parts.secs} ${t("secs")}`}
     >
-      <Unit value={String(parts.days)} label={t("days")} />
+      <Unit value={String(parts.days)} label={t("days")} arabic={arabic} />
       <span className="font-names pt-[0.15em] text-[24px] italic leading-[1.6em] text-ink/35 md:text-[28px]">
         :
       </span>
-      <Unit value={pad(parts.hours)} label={t("hours")} />
+      <Unit value={pad(parts.hours)} label={t("hours")} arabic={arabic} />
       <span className="font-names pt-[0.15em] text-[24px] italic leading-[1.6em] text-ink/35 md:text-[28px]">
         :
       </span>
-      <Unit value={pad(parts.mins)} label={t("mins")} />
+      <Unit value={pad(parts.mins)} label={t("mins")} arabic={arabic} />
       <span className="font-names pt-[0.15em] text-[24px] italic leading-[1.6em] text-ink/35 md:text-[28px]">
         :
       </span>
-      <Unit value={pad(parts.secs)} label={t("secs")} />
+      <Unit value={pad(parts.secs)} label={t("secs")} arabic={arabic} />
     </div>
   );
 }
