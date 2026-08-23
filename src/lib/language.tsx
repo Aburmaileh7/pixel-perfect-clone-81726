@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useState, type Context, type ReactNode } from "react";
 
 /**
  * Bilingual copy dictionary (EN / ES), mirroring the original page.
