@@ -302,7 +302,7 @@ export function ScratchScene() {
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-2 text-sage-dark/70">
                   <Clock className="h-4 w-4" />
-                  <span className="font-body">{t("hours")}</span>
+                  <span className="font-body">{t("venueHours")}</span>
                 </div>
               </div>
 
