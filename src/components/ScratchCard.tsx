@@ -248,6 +248,7 @@ export function ScratchCard({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    drawingStartedRef.current = true;
     onScratchStart?.();
 
     ctx.globalCompositeOperation = "destination-out";
