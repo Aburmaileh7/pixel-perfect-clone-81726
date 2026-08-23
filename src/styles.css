@@ -9,7 +9,8 @@
  *
  * Palette is a warm parchment / champagne set sampled from the original page.
  * Typography: Cormorant SC (display + small caps), Cormorant (body),
- * Playfair Display italic (names). Loaded via <link> in src/routes/__root.tsx.
+ * Playfair Display italic (names), Amiri/Markazi Text (Arabic). Loaded via
+ * <link> in src/routes/__root.tsx.
  */
 
 @theme inline {
@@ -17,6 +18,8 @@
   --font-body: Cormorant, serif;
   --font-names: "Playfair Display", serif;
   --font-script: "Cormorant Garamond", serif;
+  /* Arabic script fallback — Cormorant/Playfair have no Arabic glyphs. */
+  --font-arabic: "Amiri", "Markazi Text", serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -140,6 +143,11 @@
 @utility font-script {
   font-family: var(--font-script);
   font-style: italic;
+}
+
+@utility font-arabic {
+  font-family: var(--font-arabic);
+  font-style: normal;
 }
 
 @utility text-sage {
