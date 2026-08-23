@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useState, type Context, type ReactNode } from "react";
 
 /**
  * Bilingual copy dictionary (EN / ES), mirroring the original page.
@@ -34,7 +34,16 @@ interface LanguageContextValue {
   t: (key: Key) => string;
 }
 
-const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
+// Cache the context on globalThis so hot-reloads (or a duplicated module
+// instance) never produce two distinct contexts, which would make consumers
+// read `undefined` even though a provider is mounted above them.
+const globalStore = globalThis as typeof globalThis & {
+  __languageContext?: Context<LanguageContextValue | undefined>;
+};
+
+const LanguageContext =
+  globalStore.__languageContext ??
+  (globalStore.__languageContext = createContext<LanguageContextValue | undefined>(undefined));
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
@@ -45,8 +54,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
 }
 
+const fallback: LanguageContextValue = {
+  lang: "en",
+  setLang: () => {},
+  t: (key: Key) => translations[key].en,
+};
+
 export function useLanguage() {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
-  return ctx;
+  // Fall back to English instead of throwing so a missing provider can never
+  // blank the whole page.
+  return useContext(LanguageContext) ?? fallback;
 }
+
