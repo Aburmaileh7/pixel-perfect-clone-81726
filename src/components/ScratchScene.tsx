@@ -15,12 +15,12 @@ import venueImage from "@/assets/finca-biniagual.jpg";
 
 /** Static wedding details rendered after the reveal. */
 const WEDDING = {
-  names: "Clara & Hugo",
-  location: "Finca Biniagual",
-  address: "Finca Biniagual, Mallorca",
-  startIso: "2027-05-08T15:00:00Z",
-  endIso: "2027-05-08T23:00:00Z",
-  dateLabel: "08.05.27",
+  names: "Omar & كريمته",
+  location: "قصر اليوسفي",
+  address: "Aljubiha, شارع ياجوز، عمّان",
+  startIso: "2026-09-10T21:00:00Z",
+  endIso: "2026-09-10T23:59:00Z",
+  dateLabel: "10.09.26",
   mapsUrl: "https://maps.app.goo.gl/KHMzUJcEUWvGT4hW7",
 };
 
