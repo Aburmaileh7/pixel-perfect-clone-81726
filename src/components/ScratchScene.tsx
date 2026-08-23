@@ -163,14 +163,14 @@ export function ScratchScene() {
             {/* Warm tint inside the oval opening */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 z-[5] h-full w-full -translate-x-[0.5%] -translate-y-[7%]"
+              className="pointer-events-none absolute inset-0 z-[5] h-full w-full"
               style={{ backgroundColor: "rgba(40, 30, 20, 0.32)", ...maskLayer }}
             />
 
             {/* Vignette that blends the oval edge into the frame */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 z-[6] h-full w-full -translate-x-[0.5%] -translate-y-[7%]"
+              className="pointer-events-none absolute inset-0 z-[6] h-full w-full"
               style={{
                 background:
                   "radial-gradient(circle at center, transparent 68%, rgba(225, 210, 182, 0.95) 92%)",
@@ -184,7 +184,7 @@ export function ScratchScene() {
               color="rgba(216, 201, 172, 0.68)"
               radius={18}
               revealThreshold={0.65}
-              className="absolute inset-0 z-20 block h-full w-full -translate-x-[0.5%] -translate-y-[7%]"
+              className="absolute inset-0 z-20 block h-full w-full"
               onScratchStart={() => {
                 if (startedRef.current) return;
                 startedRef.current = true;
@@ -302,7 +302,7 @@ export function ScratchScene() {
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-2 text-sage-dark/70">
                   <Clock className="h-4 w-4" />
-                  <span className="font-body">{t("hours")}</span>
+                  <span className="font-body">{t("venueHours")}</span>
                 </div>
               </div>
 
