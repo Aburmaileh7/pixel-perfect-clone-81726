@@ -21,7 +21,7 @@ const WEDDING = {
   startIso: "2027-05-08T15:00:00Z",
   endIso: "2027-05-08T23:00:00Z",
   dateLabel: "08.05.27",
-  mapsUrl: "https://maps.app.goo.gl/VtAAUvZfTa636EFa6",
+  mapsUrl: "https://maps.app.goo.gl/KHMzUJcEUWvGT4hW7",
 };
 
 const GOLD = ["#e8d9bb", "#dec8a0", "#f0e1c0", "#d6c39a"];
