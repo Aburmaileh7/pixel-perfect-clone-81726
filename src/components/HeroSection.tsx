@@ -207,7 +207,7 @@ export function HeroSection() {
                   src={fincaAsset.url}
                   alt={t("venueImageAlt")}
                   width={1024}
-                  height={768}
+                  height={765}
                   loading="lazy"
                   className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-80"
                 />
