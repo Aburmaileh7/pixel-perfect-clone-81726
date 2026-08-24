@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-import envelopeStill from "@/assets/envelope.jpg";
-import heroFrame from "@/assets/hero-frame.png";
-import cupidLogo from "@/assets/cupid-logo.png";
+import envelopeAsset from "@/assets/envelope.jpg.asset.json";
+import heroFrameAsset from "@/assets/hero-frame.png.asset.json";
+import cupidLogoAsset from "@/assets/cupid-logo.png.asset.json";
+import envelopeVideoAsset from "@/assets/envelope-open.mp4.asset.json";
 import { useLanguage } from "@/lib/language";
 
 interface EnvelopeIntroProps {
@@ -26,7 +27,7 @@ export function EnvelopeIntro({ onEnter, onInteraction }: EnvelopeIntroProps) {
 
   // Warm the browser cache for the next scene while the user is still here.
   useEffect(() => {
-    [heroFrame, cupidLogo].forEach((src) => {
+    [heroFrameAsset.url, cupidLogoAsset.url].forEach((src) => {
       const img = new Image();
       img.src = src;
     });
@@ -58,14 +59,14 @@ export function EnvelopeIntro({ onEnter, onInteraction }: EnvelopeIntroProps) {
       <div className="pointer-events-none absolute inset-0">
         {!videoVisible && (
           <img
-            src={envelopeStill}
+            src={envelopeAsset.url}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
         )}
         <video
           ref={videoRef}
-          src="/video/envelope-open.mp4"
+          src={envelopeVideoAsset.url}
           muted
           playsInline
           preload="auto"
