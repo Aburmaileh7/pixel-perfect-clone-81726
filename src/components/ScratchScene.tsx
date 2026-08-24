@@ -359,7 +359,7 @@ export function ScratchScene() {
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                
+                <
                   href={googleCalendarUrl(t("coupleNames"), t("venueAddress"))}
                   target="_blank"
                   rel="noopener noreferrer"
