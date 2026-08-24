@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { EnvelopeIntro } from "@/components/EnvelopeIntro";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MusicToggle } from "@/components/MusicToggle";
-import { ScratchScene } from "@/components/ScratchScene";
+import { HeroSection } from "@/components/HeroSection";
 import { LanguageProvider } from "@/lib/language";
+import musicAsset from "@/assets/background-music.mp3.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/")({
   component: SaveTheDatePage,
 });
 
-const MUSIC_SRC = "/audio/background-music.mp3";
+const MUSIC_SRC = musicAsset.url;
 
 function SaveTheDatePage() {
   const [entered, setEntered] = useState(false);
@@ -94,7 +95,7 @@ function SaveTheDatePage() {
     <LanguageProvider>
       <LanguageToggle />
       <main className="bg-transparent">
-        <ScratchScene />
+        <HeroSection />
         <MusicToggle muted={muted} onToggle={toggleMute} />
         {!entered && (
           <EnvelopeIntro onEnter={() => setEntered(true)} onInteraction={startMusic} />
