@@ -88,7 +88,7 @@ export function HeroSection() {
               color="rgba(216, 201, 172, 0.68)"
               radius={18}
               revealThreshold={0.65}
-              className="absolute inset-0 z-20 block h-full w-full origin-center -translate-x-[0.5%] -translate-y-[0.3%] scale-[1.32]"
+              className="absolute inset-0 z-20 block h-full w-full origin-center -translate-x-[0.5%] -translate-y-[0.5%] scale-[1.32]"
               onScratchStart={() => {
                 if (startedRef.current) return;
                 startedRef.current = true;
