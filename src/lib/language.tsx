@@ -19,7 +19,6 @@ export const translations = {
 
   // Couple + venue details (translated, replacing the old hardcoded strings)
   coupleNames: { en: "Omar & His Bride", ar: "عمر و كريمته" },
-  weGettingMarried: { en: "WE ARE GETTING MARRIED", ar: "حفل زفافنا" },
   location: { en: "Location", ar: "المكان" },
   venueLabel: { en: "Location", ar: "المكان" },
   venueName: { en: "Al Yousefi Palace", ar: "قصر اليوسفي" },
