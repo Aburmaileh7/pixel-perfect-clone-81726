@@ -90,7 +90,8 @@ export function HeroSection() {
               revealThreshold={0.65}
               //className="absolute inset-0 z-20 block h-full w-full origin-center -translate-x-[0.5%] -translate-y-[0.5%] scale-[1.34]"
               //className="absolute inset-0 z-20 block h-full w-full origin-center -translate-x-[0.5%] translate-y-[2%] scale-x-[1.32] scale-y-[1.25]"
-              className="absolute inset-0 z-20 block h-full w-full origin-center translate-x-[0.5%] translate-y-[3.5%] scale-x-[1.30] scale-y-[1.28]"
+              //className="absolute inset-0 z-20 block h-full w-full origin-center translate-x-[0.5%] translate-y-[3.5%] scale-x-[1.30] scale-y-[1.28]"
+              className="absolute inset-0 z-20 block h-full w-full origin-center translate-x-[0.5%] translate-y-[4.2%] scale-x-[1.30] scale-y-[1.26]"
               onScratchStart={() => {
                 if (startedRef.current) return;
                 startedRef.current = true;
