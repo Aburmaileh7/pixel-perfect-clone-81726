@@ -350,7 +350,7 @@ export function ScratchScene() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <
+                <a
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -359,7 +359,7 @@ export function ScratchScene() {
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                <
+                <a
                   href={googleCalendarUrl(t("coupleNames"), t("venueAddress"))}
                   target="_blank"
                   rel="noopener noreferrer"
