@@ -9,7 +9,6 @@ import { WEDDING, buildCalendarUrl } from "@/lib/wedding";
 import heroFrameAsset from "@/assets/hero-frame.png.asset.json";
 import heroOvalMaskAsset from "@/assets/hero-oval-mask.png.asset.json";
 import linenTextureAsset from "@/assets/linen-texture.jpg.asset.json";
-import cupidLogoAsset from "@/assets/cupid-logo.png.asset.json";
 import venueAsset from "@/assets/al-yousefi-palace.png.asset.json";
 
 
