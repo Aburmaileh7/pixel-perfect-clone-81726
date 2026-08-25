@@ -11,20 +11,20 @@ import musicAsset from "@/assets/background-music.mp3.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Save The Date | Clara & Hugo — 15.06.27" },
+      { title: "Save The Date | Omar & His Bride — 10.09.26" },
       {
         name: "description",
         content:
-          "Scratch the lace card to reveal our wedding announcement: Clara & Hugo, 15.06.27 at Villa Montalcino.",
+          "Scratch the lace card to reveal our wedding announcement: Omar & His Bride, 10.09.26 at Al Yousefi Palace, Amman.",
       },
-      { property: "og:title", content: "Save The Date | Clara & Hugo" },
+      { property: "og:title", content: "Save The Date | Omar & His Bride" },
       {
         property: "og:description",
         content: "Open the envelope and scratch to reveal our save the date.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Save The Date | Clara & Hugo" },
+      { name: "twitter:title", content: "Save The Date | Omar & His Bride" },
       {
         name: "twitter:description",
         content: "Open the envelope and scratch to reveal our save the date.",
