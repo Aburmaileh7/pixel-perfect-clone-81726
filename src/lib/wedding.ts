@@ -3,7 +3,7 @@
  * Language-dependent copy lives in src/lib/language.tsx.
  */
 export const WEDDING = {
-  names: "Clara & Hugo",
+  names: "Omar & Rahaf",
   dateLabel: "10.09.26",
   location: "Al Yousefi Palace, Yajouz Street, Al-Jubeiha, Amman",
   startIso: "2026-09-10T21:00:00+03:00",
