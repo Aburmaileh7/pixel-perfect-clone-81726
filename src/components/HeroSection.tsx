@@ -40,7 +40,7 @@ function fireConfetti() {
 }
 
 export function HeroSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [scratching, setScratching] = useState(false);
   const startedRef = useRef(false);
   const [revealed, setRevealed] = useState(false);
@@ -78,7 +78,7 @@ export function HeroSection() {
           <div className="relative flex aspect-[9/16] w-full items-center justify-center">
             <img
               src={heroFrameAsset.url}
-              alt={WEDDING.names}
+              alt={t("coupleNames")}
               className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-contain"
             />
             <ScratchCard
@@ -137,8 +137,16 @@ export function HeroSection() {
               <p className="font-display mb-2 text-xs uppercase tracking-[0.35em] text-ink md:text-xs">
                 {t("weGettingMarried")}
               </p>
-              <h1 className="font-names mb-1 text-3xl italic text-ink md:text-4xl">
-                {WEDDING.names}
+              <p
+                dir="rtl"
+                className="font-arabic mb-3 text-sm leading-relaxed text-ink/90 md:text-base"
+              >
+                بمشيئة الله تعالى، تتشرف عائلتا بطاح وأبورميله بدعوتكم لحضور حفل زفاف نجلهما
+              </p>
+              <h1
+                className={`mb-1 text-3xl text-ink md:text-4xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
+              >
+                {t("coupleNames")}
               </h1>
               <p className="font-display mb-2 text-sm uppercase tracking-[0.25em] text-ink md:text-sm">
                 {WEDDING.dateLabel}
@@ -192,7 +200,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -201,7 +209,7 @@ export function HeroSection() {
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                <a
+                
                   href={buildCalendarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
