@@ -1,6 +1,6 @@
 import { useLanguage } from "@/lib/language";
 
-/** EN / ES language switch pinned to the top-right corner. */
+/** EN / AR language switch pinned to the top-right corner. */
 export function LanguageToggle() {
   const { lang, setLang } = useLanguage();
   const base = "font-display tracking-[0.2em] uppercase text-xs transition-colors";
@@ -17,10 +17,10 @@ export function LanguageToggle() {
       <span className="text-ink/40">/</span>
       <button
         onClick={() => setLang("ar")}
-        className={`${base} ${lang === "ar" ? "font-semibold text-ink" : "hover:text-ink"}`}
-        aria-label="العربية"
+        className={`${base} ${lang === "ar" ? "font-semibold text-ink" : "hover:text-ink"} font-arabic normal-case`}
+        aria-label="عربي"
       >
-        AR
+        عربي
       </button>
     </div>
   );
