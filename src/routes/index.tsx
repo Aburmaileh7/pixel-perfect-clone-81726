@@ -7,6 +7,7 @@ import { MusicToggle } from "@/components/MusicToggle";
 import { HeroSection } from "@/components/HeroSection";
 import { LanguageProvider } from "@/lib/language";
 import musicAsset from "@/assets/background-music.mp3.asset.json";
+import ogImageAsset from "@/assets/og-preview.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,6 +30,10 @@ export const Route = createFileRoute("/")({
         name: "twitter:description",
         content: "Open the envelope and scratch to reveal our save the date.",
       },
+      { property: "og:image", content: `https://YOUR_DOMAIN_HERE${ogImageAsset.url}` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:image", content: `https://YOUR_DOMAIN_HERE${ogImageAsset.url}` },
     ],
   }),//
   component: SaveTheDatePage,
