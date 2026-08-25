@@ -5,10 +5,10 @@
 export const WEDDING = {
   names: "Clara & Hugo",
   dateLabel: "10.09.26",
-  location: "Finca Biniagual, Mallorca",
-  startIso: "2026-09-10T21:00:00Z",
-  endIso: "2026-09-10T23:59:00Z",
-  mapsUrl: "https://maps.app.goo.gl/KHMzUJcEUWvGT4hW7",
+  location: "Al Yousefi Palace, Yajouz Street, Al-Jubeiha, Amman",
+  startIso: "2026-09-10T21:00:00+03:00",
+  endIso: "2026-09-11T00:00:00+03:00",
+  mapsUrl: "https://maps.app.goo.gl/Lq6ZTM6EfJf94ei47",
 } as const;
 
 /** Google Calendar "add event" link for the wedding. */

@@ -10,7 +10,7 @@ import heroFrameAsset from "@/assets/hero-frame.png.asset.json";
 import heroOvalMaskAsset from "@/assets/hero-oval-mask.png.asset.json";
 import linenTextureAsset from "@/assets/linen-texture.jpg.asset.json";
 import cupidLogoAsset from "@/assets/cupid-logo.png.asset.json";
-import fincaAsset from "@/assets/finca-biniagual.jpg.asset.json";
+import venueAsset from "@/assets/al-yousefi-palace.png.asset.json";
 
 
 const GOLD = ["#e8d9bb", "#dec8a0", "#f0e1c0", "#d6c39a"];
@@ -207,10 +207,10 @@ export function HeroSection() {
 
               <div className="group relative mb-6 overflow-hidden rounded-lg border border-sage/30">
                 <img
-                  src={fincaAsset.url}
+                  src={venueAsset.url}
                   alt={t("venueImageAlt")}
-                  width={1024}
-                  height={765}
+                  width={650}
+                  height={487}
                   loading="lazy"
                   className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-80"
                 />
@@ -219,7 +219,7 @@ export function HeroSection() {
 
               <div className="mb-6 overflow-hidden rounded-lg border border-sage/30">
                 <iframe
-                  src="https://www.google.com/maps?q=Finca%20Biniagual&output=embed"
+                  src="https://www.google.com/maps?q=Al%20Yousefi%20Palace%20Yajouz%20Street%20Amman&output=embed"
                   width="100%"
                   height={200}
                   allowFullScreen
