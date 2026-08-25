@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
         content: "Open the envelope and scratch to reveal our save the date.",
       },
     ],
-  }),
+  }),//
   component: SaveTheDatePage,
 });
 
