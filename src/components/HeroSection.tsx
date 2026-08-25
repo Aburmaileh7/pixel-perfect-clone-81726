@@ -126,45 +126,6 @@ export function HeroSection() {
 
       <AnimatePresence>
         {revealed && (
-          <motion.a
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            href="https://thedigitalyes.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute left-0 right-0 top-6 z-20 mx-auto w-fit"
-          >
-            <motion.span
-              initial={{ x: "calc(50vw - 4.5rem)", y: -6 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-              className="block"
-            >
-              <motion.span
-                animate={{ y: [0, -3, 0, 2, 0] }}
-                transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
-                aria-label="The Digital Yes"
-                className="block h-10 w-10 bg-ink opacity-90"
-                style={{
-                  WebkitMaskImage: `url(${cupidLogoAsset.url})`,
-                  maskImage: `url(${cupidLogoAsset.url})`,
-                  WebkitMaskRepeat: "no-repeat",
-                  maskRepeat: "no-repeat",
-                  WebkitMaskSize: "contain",
-                  maskSize: "contain",
-                  WebkitMaskPosition: "center",
-                  maskPosition: "center",
-                }}
-              />
-            </motion.span>
-          </motion.a>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {revealed && (
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
