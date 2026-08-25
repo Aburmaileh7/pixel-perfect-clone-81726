@@ -28,6 +28,21 @@ export const translations = {
   addToCalendar: { en: "Add to calendar", ar: "أضف إلى التقويم" },
   venueImageAlt: { en: "Al Yousefi Palace - view", ar: "قصر اليوسفي - صورة" },
   mapTitle: { en: "Map of Al Yousefi Palace", ar: "خريطة قصر اليوسفي" },
+
+  // RSVP form
+  rsvpTitle: { en: "RSVP", ar: "تأكيد الحضور" },
+  rsvpSubtitle: { en: "Kindly respond by 1st September 2026", ar: "نرجو التأكيد قبل 1 أيلول 2026" },
+  rsvpName: { en: "Full Name", ar: "الاسم الكامل" },
+  rsvpAttendance: { en: "Will you be attending?", ar: "هل ستحضر؟" },
+  rsvpYes: { en: "Joyfully accepts", ar: "أقبل بكل سرور" },
+  rsvpNo: { en: "Regretfully declines", ar: "أعتذر" },
+  rsvpMaybe: { en: "Maybe", ar: "ربما" },
+  rsvpGuests: { en: "Number of Guests", ar: "عدد الضيوف" },
+  rsvpDietary: { en: "Dietary Requirements", ar: "متطلبات غذائية" },
+  rsvpMessage: { en: "Message for the Couple", ar: "رسالة للعروسين" },
+  rsvpSubmit: { en: "Send RSVP", ar: "إرسال" },
+  rsvpSuccess: { en: "Thank you! Your response has been received.", ar: "شكراً! تم استلام ردك." },
+  rsvpError: { en: "Something went wrong. Please try again.", ar: "حدث خطأ. حاول مرة أخرى." },
 } as const;
 
 type Key = keyof typeof translations;
