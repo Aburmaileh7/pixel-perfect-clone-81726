@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "motion/react";
 import envelopeAsset from "@/assets/envelope.jpg.asset.json";
 import heroFrameAsset from "@/assets/hero-frame.png.asset.json";
 import cupidLogoAsset from "@/assets/cupid-logo.png.asset.json";
-import envelopeVideoAsset from "@/assets/envelope-open.mp4.asset.json";
+import envelopeVideoAsset from "@/assets/envelope-open2.mp4.asset.json";
+//import envelopeVideoAsset from "@/assets/envelope-open.mp4.asset.json";
 import { useLanguage } from "@/lib/language";
 
 interface EnvelopeIntroProps {
