@@ -151,7 +151,9 @@ export function HeroSection() {
               </h1>
               <p className="font-display mb-2 text-sm uppercase tracking-[0.25em] text-ink md:text-sm">
                 {WEDDING.dateLabel}
+              </p>
               <p
+
                 className={`mb-3 text-[10px] tracking-[0.25em] text-ink/75 md:text-xs ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
               >
                 {t("venueName")}
