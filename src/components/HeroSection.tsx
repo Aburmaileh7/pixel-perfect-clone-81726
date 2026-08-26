@@ -129,41 +129,41 @@ export function HeroSection() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="relative z-20 mx-auto w-full max-w-[540px] px-4 pb-12"
           >
-                        <div className="mb-6 px-6 text-center">
+            <div className="mb-6 px-6 text-center">
               <p
                 dir="rtl"
-                className="font-arabic mb-4 text-lg font-bold leading-relaxed text-ink md:text-xl"
+                className="font-arabic mb-4 text-xl font-bold leading-relaxed text-ink md:text-2xl"
               >
                 بسم الله الرحمن الرحيم
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-3 text-sm leading-relaxed text-ink/80 md:text-base"
+                className="font-arabic mb-3 text-base leading-relaxed text-ink/80 md:text-lg"
               >
                 ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-2 text-base font-semibold leading-relaxed text-ink md:text-lg"
+                className="font-arabic mb-2 text-lg font-semibold leading-relaxed text-ink md:text-xl"
               >
                 تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله محمد أبو أرميلة
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-4 text-base font-semibold leading-relaxed text-ink md:text-lg"
+                className="font-arabic mb-4 text-lg font-semibold leading-relaxed text-ink md:text-xl"
               >
                 بدعوتكم لحضور حفل زفاف نجليهما
               </p>
               <h1
-                className={`mb-2 text-4xl font-bold text-ink md:text-5xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
+                className={`mb-2 text-5xl font-bold text-ink md:text-6xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
               >
                 {t("coupleNames")}
               </h1>
-              <p className="font-display mb-3 text-base font-bold uppercase tracking-[0.25em] text-ink md:text-lg">
+              <p className="font-display mb-3 text-lg font-bold uppercase tracking-[0.25em] text-ink md:text-xl">
                 {WEDDING.dateLabel}
               </p>
               <p
-                className={`mb-3 text-sm font-semibold tracking-[0.2em] text-ink/80 md:text-base ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
+                className={`mb-3 text-base font-semibold tracking-[0.2em] text-ink/80 md:text-lg ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
               >
                 {t("venueName")}
               </p>
@@ -171,7 +171,6 @@ export function HeroSection() {
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
             </div>
-    
 
             <div className="rounded-lg border border-sage/30 bg-white/80 p-8 text-center shadow-sm backdrop-blur-sm md:p-12">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-sage/30">
@@ -215,7 +214,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -224,7 +223,7 @@ export function HeroSection() {
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                <a
+                
                   href={buildCalendarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
