@@ -151,7 +151,9 @@ export function HeroSection() {
               </h1>
               <p className="font-display mb-2 text-sm uppercase tracking-[0.25em] text-ink md:text-sm">
                 {WEDDING.dateLabel}
+              </p>
               <p
+
                 className={`mb-3 text-[10px] tracking-[0.25em] text-ink/75 md:text-xs ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
               >
                 {t("venueName")}
@@ -203,7 +205,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                
+                <a
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -212,7 +214,7 @@ export function HeroSection() {
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                
+                <a
                   href={buildCalendarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
