@@ -214,7 +214,7 @@ export function HeroSection() {
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                
+                <a
                   href={buildCalendarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
