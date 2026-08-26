@@ -5,7 +5,7 @@
  */
 export function SiteSignature() {
   return (
-    
+    <a
       href="https://www.linkedin.com/in/aburmaileh7/"
       target="_blank"
       rel="noopener noreferrer"
