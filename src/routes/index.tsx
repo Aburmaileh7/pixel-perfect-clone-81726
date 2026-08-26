@@ -5,6 +5,7 @@ import { EnvelopeIntro } from "@/components/EnvelopeIntro";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { MusicToggle } from "@/components/MusicToggle";
 import { HeroSection } from "@/components/HeroSection";
+import { SiteSignature } from "@/components/SiteSignature";
 import { LanguageProvider } from "@/lib/language";
 import musicAsset from "@/assets/background-music.mp3.asset.json";
 import ogImageAsset from "@/assets/og-preview.png.asset.json";
