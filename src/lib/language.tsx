@@ -54,7 +54,7 @@ const LanguageContext =
   (globalStore.__languageContext = createContext<LanguageContextValue | undefined>(undefined));
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("ar");
   const dir = DIR_BY_LANG[lang];
   const t = (key: Key) => translations[key][lang];
 
