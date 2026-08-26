@@ -240,6 +240,13 @@ export function HeroSection() {
                 </a>
               </div>
             </div>
+
+            <p
+              dir="rtl"
+              className="font-arabic mt-8 px-6 text-center text-base font-semibold leading-relaxed text-ink md:text-lg"
+            >
+              جعلهُ الله زواجاً مباركاً لا يخيب، وعُمراً رغيداً تمتدّ فيه المسرّات على مرّ السنين.
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
