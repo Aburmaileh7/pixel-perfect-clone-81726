@@ -7,11 +7,9 @@ import { ScratchCard } from "@/components/ScratchCard";
 import { useLanguage } from "@/lib/language";
 import { WEDDING, buildCalendarUrl } from "@/lib/wedding";
 import heroFrameAsset from "@/assets/hero-frame.webp.asset.json";
-//import heroFrameAsset from "@/assets/hero-frame.png.asset.json";
 import heroOvalMaskAsset from "@/assets/hero-oval-mask.png.asset.json";
 import linenTextureAsset from "@/assets/linen-texture.jpg.asset.json";
 import venueAsset from "@/assets/al-yousefi-palace.png.asset.json";
-
 
 const GOLD = ["#e8d9bb", "#dec8a0", "#f0e1c0", "#d6c39a"];
 const CREAM = ["#fcf0d7", "#fff8e8", "#f5e6c2", "#ffffff"];
@@ -88,9 +86,6 @@ export function HeroSection() {
               color="rgba(216, 201, 172, 0.68)"
               radius={38}
               revealThreshold={0.5}
-              //className="absolute inset-0 z-20 block h-full w-full origin-center -translate-x-[0.5%] -translate-y-[0.5%] scale-[1.34]"
-              //className="absolute inset-0 z-20 block h-full w-full origin-center -translate-x-[0.5%] translate-y-[2%] scale-x-[1.32] scale-y-[1.25]"
-              //className="absolute inset-0 z-20 block h-full w-full origin-center translate-x-[0.5%] translate-y-[3.5%] scale-x-[1.30] scale-y-[1.28]"
               className="absolute inset-0 z-20 block h-full w-full origin-center translate-x-[0.5%] translate-y-[4.2%] scale-x-[1.30] scale-y-[1.26]"
               onScratchStart={() => {
                 if (startedRef.current) return;
@@ -135,14 +130,29 @@ export function HeroSection() {
             className="relative z-20 mx-auto w-full max-w-[540px] px-4 pb-12"
           >
             <div className="mb-6 px-6 text-center">
-              <p className="font-display mb-2 text-xs uppercase tracking-[0.35em] text-ink md:text-xs">
-                {t("weGettingMarried")}
+              <p
+                dir="rtl"
+                className="font-arabic mb-3 text-sm leading-relaxed text-ink md:text-base"
+              >
+                بسم الله الرحمن الرحيم
+              </p>
+              <p
+                dir="rtl"
+                className="font-arabic mb-2 text-xs leading-relaxed text-ink/80 md:text-sm"
+              >
+                ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها وجعل بينكم
+              </p>
+              <p
+                dir="rtl"
+                className="font-arabic mb-1 text-sm leading-relaxed text-ink/90 md:text-base"
+              >
+                تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله محمد أبو أرميلة
               </p>
               <p
                 dir="rtl"
                 className="font-arabic mb-3 text-sm leading-relaxed text-ink/90 md:text-base"
               >
-                بمشيئة الله تعالى، تتشرف عائلتا بطاح وأبورميله بدعوتكم لحضور حفل زفاف نجلهما
+                بدعوتكم لحضور حفل زفاف نجليهما
               </p>
               <h1
                 className={`mb-1 text-3xl text-ink md:text-4xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
@@ -153,12 +163,11 @@ export function HeroSection() {
                 {WEDDING.dateLabel}
               </p>
               <p
-
                 className={`mb-3 text-[10px] tracking-[0.25em] text-ink/75 md:text-xs ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
               >
                 {t("venueName")}
               </p>
-              
+
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
             </div>
@@ -205,7 +214,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -214,7 +223,7 @@ export function HeroSection() {
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
                 </a>
-                <a
+                
                   href={buildCalendarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
