@@ -170,6 +170,12 @@ export function HeroSection() {
 
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
+              <p
+                dir="rtl"
+                className="font-arabic mt-4 text-lg font-semibold leading-relaxed text-ink md:text-xl"
+              >
+                للعُمر الذي لا يُعدّ
+              </p>
             </div>
 
             <div className="rounded-lg border border-sage/30 bg-white/80 p-8 text-center shadow-sm backdrop-blur-sm md:p-12">
