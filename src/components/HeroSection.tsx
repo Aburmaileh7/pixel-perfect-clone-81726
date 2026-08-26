@@ -129,41 +129,41 @@ export function HeroSection() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="relative z-20 mx-auto w-full max-w-[540px] px-4 pb-12"
           >
-            <div className="mb-6 px-6 text-center">
+                        <div className="mb-6 px-6 text-center">
               <p
                 dir="rtl"
-                className="font-arabic mb-3 text-sm leading-relaxed text-ink md:text-base"
+                className="font-arabic mb-4 text-lg font-bold leading-relaxed text-ink md:text-xl"
               >
                 بسم الله الرحمن الرحيم
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-2 text-xs leading-relaxed text-ink/80 md:text-sm"
+                className="font-arabic mb-3 text-sm leading-relaxed text-ink/80 md:text-base"
               >
-                ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها 
+                ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-1 text-sm leading-relaxed text-ink/90 md:text-base"
+                className="font-arabic mb-2 text-base font-semibold leading-relaxed text-ink md:text-lg"
               >
                 تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله محمد أبو أرميلة
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-3 text-sm leading-relaxed text-ink/90 md:text-base"
+                className="font-arabic mb-4 text-base font-semibold leading-relaxed text-ink md:text-lg"
               >
                 بدعوتكم لحضور حفل زفاف نجليهما
               </p>
               <h1
-                className={`mb-1 text-3xl text-ink md:text-4xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
+                className={`mb-2 text-4xl font-bold text-ink md:text-5xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
               >
                 {t("coupleNames")}
               </h1>
-              <p className="font-display mb-2 text-sm uppercase tracking-[0.25em] text-ink md:text-sm">
+              <p className="font-display mb-3 text-base font-bold uppercase tracking-[0.25em] text-ink md:text-lg">
                 {WEDDING.dateLabel}
               </p>
               <p
-                className={`mb-3 text-[10px] tracking-[0.25em] text-ink/75 md:text-xs ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
+                className={`mb-3 text-sm font-semibold tracking-[0.2em] text-ink/80 md:text-base ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
               >
                 {t("venueName")}
               </p>
@@ -171,6 +171,7 @@ export function HeroSection() {
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
             </div>
+    
 
             <div className="rounded-lg border border-sage/30 bg-white/80 p-8 text-center shadow-sm backdrop-blur-sm md:p-12">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-sage/30">
