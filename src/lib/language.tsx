@@ -9,7 +9,7 @@ export const translations = {
   openEnvelope: { en: "OPEN ENVELOPE", ar: "افتح الظرف" },
   envelopeAlt: { en: "Envelope with seal", ar: "ظرف مختوم" },
   tapToOpen: { en: "Tap to open", ar: "اضغط للفتح" },
-  scratchToReveal: { en: "Scratch to\nreveal", ar: "اِحكّ\nللكشف" },
+  scratchToReveal: { en: "Scratch to\nreveal", ar: "Scratch to\nreveal" },
   days: { en: "Days", ar: "أيام" },
   hours: { en: "Hours", ar: "ساعات" },
   mins: { en: "Mins", ar: "دقائق" },
@@ -18,7 +18,7 @@ export const translations = {
   countdownTitle: { en: "Counting down", ar: "العد التنازلي" },
 
   // Couple + venue details (translated, replacing the old hardcoded strings)
-  coupleNames: { en: "Omar & His Bride", ar: "عمر و كريمته" },
+  coupleNames: { en: "Omar & Rahaf", ar: "عمر ورهف" },
   location: { en: "Location", ar: "المكان" },
   venueLabel: { en: "Location", ar: "المكان" },
   venueName: { en: "Al Yousefi Palace", ar: "قصر اليوسفي" },
