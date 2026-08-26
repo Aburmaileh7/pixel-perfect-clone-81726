@@ -13,20 +13,20 @@ import ogImageAsset from "@/assets/og-preview.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Save The Date | Omar & His Bride — 10.09.26" },
+      { title: "Save The Date | Omar & ٌRahaf — 10.09.26" },
       {
         name: "description",
         content:
-          "Scratch the lace card to reveal our wedding announcement: Omar & His Bride, 10.09.26 at Al Yousefi Palace, Amman.",
+          "Scratch the lace card to reveal our wedding announcement: Omar & Rahaf, 10.09.26 at Al Yousefi Palace, Amman.",
       },
-      { property: "og:title", content: "Save The Date | Omar & His Bride" },
+      { property: "og:title", content: "Save The Date | Omar & Rahaf" },
       {
         property: "og:description",
         content: "Open the envelope and scratch to reveal our save the date.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Save The Date | Omar & His Bride" },
+      { name: "twitter:title", content: "Save The Date | Omar & Rahaf" },
       {
         name: "twitter:description",
         content: "Open the envelope and scratch to reveal our save the date.",
