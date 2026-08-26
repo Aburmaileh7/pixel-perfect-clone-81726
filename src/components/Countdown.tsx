@@ -79,6 +79,7 @@ export function Countdown({ target, className = "" }: CountdownProps) {
   if (parts.done) {
     return (
       <p
+        dir="ltr"
         className={`font-display text-[10px] uppercase tracking-[0.3em] text-ink md:text-xs ${className}`}
       >
         {t("today")}
@@ -88,6 +89,7 @@ export function Countdown({ target, className = "" }: CountdownProps) {
 
   return (
     <div
+      dir="ltr"
       className={`flex items-start justify-center gap-1 ${className}`}
       role="timer"
       aria-live="off"
