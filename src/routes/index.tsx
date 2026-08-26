@@ -103,6 +103,7 @@ function SaveTheDatePage() {
       <main className="bg-transparent">
         <HeroSection />
         <MusicToggle muted={muted} onToggle={toggleMute} />
+        <SiteSignature />
         {!entered && (
           <EnvelopeIntro onEnter={() => setEntered(true)} onInteraction={startMusic} />
         )}
