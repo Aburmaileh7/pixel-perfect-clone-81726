@@ -146,7 +146,7 @@ export function HeroSection() {
                 dir="rtl"
                 className="font-arabic mb-2 text-lg font-semibold leading-relaxed text-ink md:text-xl"
               >
-                تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله محمد أبو أرميلة
+                تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله  أبو أرميلة
               </p>
               <p
                 dir="rtl"
