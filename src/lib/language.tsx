@@ -19,7 +19,7 @@ export const translations = {
   countdownTitle: { en: "Counting down", ar: "العد التنازلي" },
 
   // Couple + venue details (translated, replacing the old hardcoded strings)
-  coupleNames: { en: "Omar & Rahaf", ar: "عمر ورهف" },
+  coupleNames: { en: "Omar & Rahaf", ar: "عمر & رهف" },
   location: { en: "Location", ar: "المكان" },
   venueLabel: { en: "Location", ar: "المكان" },
   venueName: { en: "Al Yousefi Palace", ar: "قصر اليوسفي" },
