@@ -144,36 +144,36 @@ export function HeroSection() {
                 ﴿ ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها ﴾
               </p>
               <div className="mx-auto mb-4 h-px w-12 bg-sepia/50" />
-              <p
+                           <p
                 dir="rtl"
-                className="font-arabic mb-3 text-lg font-semibold leading-relaxed text-ink md:text-xl"
+                className="font-arabic mb-5 text-lg font-semibold leading-relaxed text-ink md:text-xl"
               >
                 تتشرف
               </p>
-              <div dir="rtl" className="mb-3 flex items-start justify-center gap-3">
+              <div dir="rtl" className="mb-5 flex items-center justify-center gap-4">
                 <div className="flex-1 text-center">
-                  <p className="font-arabic text-sm leading-relaxed text-ink/80 md:text-base">
+                  <p className="font-arabic mb-1 text-sm leading-relaxed text-ink/75 md:text-base">
                     عائلة المرحوم
                   </p>
-                  <p className="font-arabic text-lg font-semibold leading-relaxed text-ink md:text-xl">
+                  <p className="font-arabic text-lg font-bold leading-snug text-ink md:text-xl">
                     وليد عيسى بطاح
                   </p>
                 </div>
-                <span className="font-arabic pt-1 text-lg font-semibold text-ink/70 md:text-xl">
+                <span className="font-arabic text-xl font-semibold text-ink/60 md:text-2xl">
                   و
                 </span>
                 <div className="flex-1 text-center">
-                  <p className="font-arabic text-sm leading-relaxed text-ink/80 md:text-base">
+                  <p className="font-arabic mb-1 text-sm leading-relaxed text-ink/75 md:text-base">
                     عائلة السيد
                   </p>
-                  <p className="font-arabic text-lg font-semibold leading-relaxed text-ink md:text-xl">
+                  <p className="font-arabic text-lg font-bold leading-snug text-ink md:text-xl">
                     عبدالله محمد أبو أرميلة
                   </p>
                 </div>
               </div>
               <p
                 dir="rtl"
-                className="font-arabic mb-4 text-lg font-semibold leading-relaxed text-ink md:text-xl"
+                className="font-arabic mb-5 text-lg font-semibold leading-relaxed text-ink md:text-xl"
               >
                 بدعوتكم لحضور حفل زفاف نجليهما
               </p>
