@@ -34,13 +34,6 @@ export const translations = {
   zaffaBride: { en: "Bride's Zaffa", ar: "زفة بيت العروس" },
   ceremonyStart: { en: "Ceremony Begins", ar: "بداية الحفل" },
   ceremonyEnd: { en: "Ceremony Ends", ar: "نهاية الحفل" },
-    // Day programme
-  dayProgrammeTitle: { en: "Day Programme", ar: "برنامج اليوم" },
-  zaffaGroom: { en: "Groom's Zaffa", ar: "زفة بيت العريس" },
-  zaffaBride: { en: "Bride's Zaffa", ar: "زفة بيت العروس" },
-  ceremonyStart: { en: "Ceremony Begins", ar: "بداية الحفل" },
-  ceremonyEnd: { en: "Ceremony Ends", ar: "نهاية الحفل" },
-
   // RSVP form
   rsvpTitle: { en: "RSVP", ar: "تأكيد الحضور" },
   rsvpSubtitle: { en: "Kindly respond by 1st September 2026", ar: "نرجو التأكيد قبل 1 أيلول 2026" },
