@@ -5,7 +5,8 @@ import { createContext, useContext, useEffect, useState, type Context, type Reac
  */
 export const translations = {
   weGettingMarried: { en: "WE ARE GETTING MARRIED", ar: "حفل زفافنا" },
-  weddingDate: { en: "10.09.26", ar: "10.09.26" },
+  //weddingDate: { en: "10.09.26", ar: "10.09.26" },
+  weddingDate: { en: "10.09.2026", ar: "10.09.2026" },
   openEnvelope: { en: "OPEN ENVELOPE", ar: "افتح الظرف" },
   envelopeAlt: { en: "Envelope with seal", ar: "ظرف مختوم" },
   tapToOpen: { en: "Tap to open", ar: "اضغط للفتح" },
