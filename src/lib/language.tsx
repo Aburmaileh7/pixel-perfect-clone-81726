@@ -28,6 +28,18 @@ export const translations = {
   addToCalendar: { en: "Add to calendar", ar: "أضف إلى التقويم" },
   venueImageAlt: { en: "Al Yousefi Palace - view", ar: "قصر اليوسفي - صورة" },
   mapTitle: { en: "Map of Al Yousefi Palace", ar: "خريطة قصر اليوسفي" },
+  // Day programme
+  dayProgrammeTitle: { en: "Day Programme", ar: "برنامج اليوم" },
+  zaffaGroom: { en: "Groom's Zaffa", ar: "زفة بيت العريس" },
+  zaffaBride: { en: "Bride's Zaffa", ar: "زفة بيت العروس" },
+  ceremonyStart: { en: "Ceremony Begins", ar: "بداية الحفل" },
+  ceremonyEnd: { en: "Ceremony Ends", ar: "نهاية الحفل" },
+    // Day programme
+  dayProgrammeTitle: { en: "Day Programme", ar: "برنامج اليوم" },
+  zaffaGroom: { en: "Groom's Zaffa", ar: "زفة بيت العريس" },
+  zaffaBride: { en: "Bride's Zaffa", ar: "زفة بيت العروس" },
+  ceremonyStart: { en: "Ceremony Begins", ar: "بداية الحفل" },
+  ceremonyEnd: { en: "Ceremony Ends", ar: "نهاية الحفل" },
 
   // RSVP form
   rsvpTitle: { en: "RSVP", ar: "تأكيد الحضور" },
