@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
-import { Clock, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
+import { Calendar, Clock, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Countdown } from "@/components/Countdown";
 import { ScratchCard } from "@/components/ScratchCard";
 import { useLanguage } from "@/lib/language";
-import { WEDDING } from "@/lib/wedding";
+import { WEDDING, buildCalendarUrl } from "@/lib/wedding";
 import heroFrameAsset from "@/assets/hero-frame.webp.asset.json";
 import heroOvalMaskAsset from "@/assets/hero-oval-mask.png.asset.json";
 import linenTextureAsset from "@/assets/linen-texture.jpg.asset.json";
@@ -130,24 +130,47 @@ export function HeroSection() {
             className="relative z-20 mx-auto w-full max-w-[540px] px-4 pb-12"
           >
             <div className="mb-6 px-6 text-center">
+              <div className="mx-auto mb-3 h-px w-12 bg-sepia/50" />
               <p
                 dir="rtl"
-                className="font-arabic mb-4 text-xl font-bold leading-relaxed text-ink md:text-2xl"
+                className="font-arabic mb-3 text-xl font-bold leading-relaxed text-sepia md:text-2xl"
               >
                 بسم الله الرحمن الرحيم
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-3 text-base leading-relaxed text-ink/80 md:text-lg"
+                className="font-arabic mb-3 text-base leading-relaxed text-sepia/90 md:text-lg"
               >
-                ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها
+                ﴿ ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها ﴾
               </p>
+              <div className="mx-auto mb-4 h-px w-12 bg-sepia/50" />
               <p
                 dir="rtl"
-                className="font-arabic mb-2 text-lg font-semibold leading-relaxed text-ink md:text-xl"
+                className="font-arabic mb-3 text-lg font-semibold leading-relaxed text-ink md:text-xl"
               >
-                تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله  أبو أرميلة
+                تتشرف
               </p>
+              <div dir="rtl" className="mb-3 flex items-start justify-center gap-3">
+                <div className="flex-1 text-center">
+                  <p className="font-arabic text-sm leading-relaxed text-ink/80 md:text-base">
+                    عائلة المرحوم
+                  </p>
+                  <p className="font-arabic text-lg font-semibold leading-relaxed text-ink md:text-xl">
+                    وليد عيسى بطاح
+                  </p>
+                </div>
+                <span className="font-arabic pt-1 text-lg font-semibold text-ink/70 md:text-xl">
+                  و
+                </span>
+                <div className="flex-1 text-center">
+                  <p className="font-arabic text-sm leading-relaxed text-ink/80 md:text-base">
+                    عائلة السيد
+                  </p>
+                  <p className="font-arabic text-lg font-semibold leading-relaxed text-ink md:text-xl">
+                    عبدالله محمد أبو أرميلة
+                  </p>
+                </div>
+              </div>
               <p
                 dir="rtl"
                 className="font-arabic mb-4 text-lg font-semibold leading-relaxed text-ink md:text-xl"
@@ -162,7 +185,7 @@ export function HeroSection() {
               <p className="font-display mb-3 text-lg font-bold uppercase tracking-[0.25em] text-ink md:text-xl">
                 {WEDDING.dateLabel}
               </p>
-
+             
 
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
@@ -216,7 +239,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -224,6 +247,15 @@ export function HeroSection() {
                 >
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
+                </a>
+                
+                  href={buildCalendarUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <Calendar className="h-4 w-4" />
+                  {t("addToCalendar")}
                 </a>
               </div>
             </div>
