@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
-import { Clock, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
+import { Calendar, Clock, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Countdown } from "@/components/Countdown";
 import { ScratchCard } from "@/components/ScratchCard";
 import { useLanguage } from "@/lib/language";
-import { WEDDING } from "@/lib/wedding";
+import { WEDDING, buildCalendarUrl } from "@/lib/wedding";
 import heroFrameAsset from "@/assets/hero-frame.webp.asset.json";
 import heroOvalMaskAsset from "@/assets/hero-oval-mask.png.asset.json";
 import linenTextureAsset from "@/assets/linen-texture.jpg.asset.json";
@@ -144,36 +144,36 @@ export function HeroSection() {
                 ﴿ ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها ﴾
               </p>
               <div className="mx-auto mb-4 h-px w-12 bg-sepia/50" />
-                           <p
+              <p
                 dir="rtl"
-                className="font-arabic mb-5 text-lg font-semibold leading-relaxed text-ink md:text-xl"
+                className="font-arabic-ui mb-5 text-xl font-bold leading-relaxed text-ink md:text-2xl"
               >
                 تتشرف
               </p>
               <div dir="rtl" className="mb-5 flex items-center justify-center gap-4">
                 <div className="flex-1 text-center">
-                  <p className="font-arabic mb-1 text-sm leading-relaxed text-ink/75 md:text-base">
+                  <p className="font-arabic-ui mb-1 text-base leading-relaxed text-ink/90 md:text-lg">
                     عائلة المرحوم
                   </p>
-                  <p className="font-arabic text-lg font-bold leading-snug text-ink md:text-xl">
+                  <p className="font-arabic-ui text-xl font-bold leading-snug text-ink md:text-2xl">
                     وليد عيسى بطاح
                   </p>
                 </div>
-                <span className="font-arabic text-xl font-semibold text-ink/60 md:text-2xl">
+                <span className="font-arabic-ui text-2xl font-bold text-ink/70 md:text-3xl">
                   و
                 </span>
                 <div className="flex-1 text-center">
-                  <p className="font-arabic mb-1 text-sm leading-relaxed text-ink/75 md:text-base">
+                  <p className="font-arabic-ui mb-1 text-base leading-relaxed text-ink/90 md:text-lg">
                     عائلة السيد
                   </p>
-                  <p className="font-arabic text-lg font-bold leading-snug text-ink md:text-xl">
+                  <p className="font-arabic-ui text-xl font-bold leading-snug text-ink md:text-2xl">
                     عبدالله محمد أبو أرميلة
                   </p>
                 </div>
               </div>
               <p
                 dir="rtl"
-                className="font-arabic mb-5 text-lg font-semibold leading-relaxed text-ink md:text-xl"
+                className="font-arabic-ui mb-5 text-xl font-bold leading-relaxed text-ink md:text-2xl"
               >
                 بدعوتكم لحضور حفل زفاف نجليهما
               </p>
@@ -185,13 +185,17 @@ export function HeroSection() {
               <p className="font-display mb-3 text-lg font-bold uppercase tracking-[0.25em] text-ink md:text-xl">
                 {WEDDING.dateLabel}
               </p>
-             
+              <p
+                className={`mb-3 text-base font-bold tracking-[0.2em] text-ink md:text-lg ${lang === "ar" ? "font-arabic-ui" : "font-display uppercase"}`}
+              >
+                {t("venueName")}
+              </p>
 
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
               <p
                 dir="rtl"
-                className="font-arabic mt-4 text-lg font-semibold leading-relaxed text-ink md:text-xl"
+                className="font-arabic-ui mt-4 text-xl font-bold leading-relaxed text-ink md:text-2xl"
               >
                 للعُمر الذي لا يُعدّ
               </p>
@@ -239,7 +243,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -247,6 +251,15 @@ export function HeroSection() {
                 >
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
+                </a>
+                
+                  href={buildCalendarUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <Calendar className="h-4 w-4" />
+                  {t("addToCalendar")}
                 </a>
               </div>
             </div>
@@ -289,7 +302,7 @@ export function HeroSection() {
                           {item.time}
                         </span>
                         <span
-                          className={`text-sm font-semibold text-ink ${lang === "ar" ? "font-arabic" : "font-body"}`}
+                          className={`text-base font-bold text-ink ${lang === "ar" ? "font-arabic-ui" : "font-body"}`}
                         >
                           {t(item.key)}
                         </span>
@@ -302,7 +315,7 @@ export function HeroSection() {
 
             <p
               dir="rtl"
-              className="font-arabic mt-8 px-6 text-center text-base font-semibold leading-relaxed text-ink md:text-lg"
+              className="font-arabic mt-8 px-6 text-center text-lg font-bold leading-relaxed text-ink md:text-xl"
             >
               جعلهُ الله زواجاً مباركاً لا يخيب، وعُمراً رغيداً تمتدّ فيه المسرّات على مرّ السنين.
             </p>
