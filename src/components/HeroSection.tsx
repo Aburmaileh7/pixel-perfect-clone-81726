@@ -228,6 +228,38 @@ export function HeroSection() {
               </div>
             </div>
 
+            <div className="mt-6 rounded-lg border border-sage/30 bg-white/80 p-8 text-center shadow-sm backdrop-blur-sm md:p-12">
+              <h2
+                className={`mb-1 text-2xl text-sage-dark ${lang === "ar" ? "font-arabic" : "font-display"}`}
+              >
+                {t("dayProgrammeTitle")}
+              </h2>
+              <p className="font-display mb-6 text-sm uppercase tracking-[0.25em] text-ink/70">
+                {WEDDING.dateLabel}
+              </p>
+              <div className="mx-auto flex max-w-xs flex-col gap-5">
+                {[
+                  { time: "6:00", key: "zaffaGroom" as const },
+                  { time: "7:00", key: "zaffaBride" as const },
+                  { time: "9:00", key: "ceremonyStart" as const },
+                  { time: "12:00", key: "ceremonyEnd" as const },
+                ].map((item) => (
+                  <div key={item.key} className="flex items-center gap-4">
+                    <span dir="ltr" className="font-display text-lg font-bold text-ink">
+                      {item.time}
+                    </span>
+                    <span className="h-px flex-1 bg-ink/15" />
+                    <span
+                      className={`text-sm font-semibold text-ink ${lang === "ar" ? "font-arabic" : "font-body"}`}
+                    >
+                      {t(item.key)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            
             <p
               dir="rtl"
               className="font-arabic mt-8 px-6 text-center text-base font-semibold leading-relaxed text-ink md:text-lg"
