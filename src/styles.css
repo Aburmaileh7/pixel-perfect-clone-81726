@@ -154,6 +154,11 @@
   font-style: normal;
 }
 
+@utility font-arabic-ui {
+  font-family: "Markazi Text", var(--font-arabic);
+  font-style: normal;
+}
+
 @utility text-sage {
   color: var(--color-sage);
 }
