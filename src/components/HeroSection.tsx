@@ -162,11 +162,7 @@ export function HeroSection() {
               <p className="font-display mb-3 text-lg font-bold uppercase tracking-[0.25em] text-ink md:text-xl">
                 {WEDDING.dateLabel}
               </p>
-              <p
-                className={`mb-3 text-base font-semibold tracking-[0.2em] text-ink/80 md:text-lg ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
-              >
-                {t("venueName")}
-              </p>
+
 
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
