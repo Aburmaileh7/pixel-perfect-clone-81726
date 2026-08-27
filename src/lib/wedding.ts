@@ -4,7 +4,7 @@
  */
 export const WEDDING = {
   names: "Omar & Rahaf",
-  dateLabel: "10.09.26",
+  dateLabel: "10.09.2026",
   location: "Al Yousefi Palace, Yajouz Street, Al-Jubeiha, Amman",
   startIso: "2026-09-10T21:00:00+03:00",
   endIso: "2026-09-11T00:00:00+03:00",
