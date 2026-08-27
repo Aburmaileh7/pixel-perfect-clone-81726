@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
-import { Calendar, Clock, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
+import { Clock, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Countdown } from "@/components/Countdown";
 import { ScratchCard } from "@/components/ScratchCard";
 import { useLanguage } from "@/lib/language";
-import { WEDDING, buildCalendarUrl } from "@/lib/wedding";
+import { WEDDING } from "@/lib/wedding";
 import heroFrameAsset from "@/assets/hero-frame.webp.asset.json";
 import heroOvalMaskAsset from "@/assets/hero-oval-mask.png.asset.json";
 import linenTextureAsset from "@/assets/linen-texture.jpg.asset.json";
@@ -239,7 +239,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                
+                <a
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -247,15 +247,6 @@ export function HeroSection() {
                 >
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
-                </a>
-                
-                  href={buildCalendarUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                >
-                  <Calendar className="h-4 w-4" />
-                  {t("addToCalendar")}
                 </a>
               </div>
             </div>
