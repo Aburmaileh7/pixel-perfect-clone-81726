@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
-import { Clock, MapPin } from "lucide-react";
+import { Calendar, Clock, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Countdown } from "@/components/Countdown";
 import { ScratchCard } from "@/components/ScratchCard";
 import { useLanguage } from "@/lib/language";
-import { WEDDING } from "@/lib/wedding";
+import { WEDDING, buildCalendarUrl } from "@/lib/wedding";
 import heroFrameAsset from "@/assets/hero-frame.webp.asset.json";
 import heroOvalMaskAsset from "@/assets/hero-oval-mask.png.asset.json";
 import linenTextureAsset from "@/assets/linen-texture.jpg.asset.json";
@@ -146,7 +146,7 @@ export function HeroSection() {
                 dir="rtl"
                 className="font-arabic mb-2 text-lg font-semibold leading-relaxed text-ink md:text-xl"
               >
-                تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله  أبو أرميلة
+                تتشرف عائلة المرحوم وليد عيسى بطاح وعائلة السيد عبدالله محمد أبو أرميلة
               </p>
               <p
                 dir="rtl"
@@ -162,7 +162,11 @@ export function HeroSection() {
               <p className="font-display mb-3 text-lg font-bold uppercase tracking-[0.25em] text-ink md:text-xl">
                 {WEDDING.dateLabel}
               </p>
-              
+              <p
+                className={`mb-3 text-base font-semibold tracking-[0.2em] text-ink/80 md:text-lg ${lang === "ar" ? "font-arabic" : "font-display uppercase"}`}
+              >
+                {t("venueName")}
+              </p>
 
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
@@ -216,7 +220,7 @@ export function HeroSection() {
               </div>
 
               <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <a
+                
                   href={WEDDING.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -224,6 +228,15 @@ export function HeroSection() {
                 >
                   <MapPin className="h-4 w-4" />
                   {t("openInMaps")}
+                </a>
+                
+                  href={buildCalendarUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-sage-dark/40 bg-background px-3 text-sm font-medium text-sage-dark transition-colors hover:bg-sage-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <Calendar className="h-4 w-4" />
+                  {t("addToCalendar")}
                 </a>
               </div>
             </div>
@@ -234,32 +247,49 @@ export function HeroSection() {
               >
                 {t("dayProgrammeTitle")}
               </h2>
-              <p className="font-display mb-6 text-sm uppercase tracking-[0.25em] text-ink/70">
+              <p className="font-display mb-8 text-sm uppercase tracking-[0.25em] text-ink/70">
                 {WEDDING.dateLabel}
               </p>
-              <div className="mx-auto flex max-w-xs flex-col gap-5">
-                {[
-                  { time: "6:00", key: "zaffaGroom" as const },
-                  { time: "7:00", key: "zaffaBride" as const },
-                  { time: "9:00", key: "ceremonyStart" as const },
-                  { time: "12:00", key: "ceremonyEnd" as const },
-                ].map((item) => (
-                  <div key={item.key} className="flex items-center gap-4">
-                    <span dir="ltr" className="font-display text-lg font-bold text-ink">
-                      {item.time}
-                    </span>
-                    <span className="h-px flex-1 bg-ink/15" />
-                    <span
-                      className={`text-sm font-semibold text-ink ${lang === "ar" ? "font-arabic" : "font-body"}`}
+              <div className="relative mx-auto max-w-xs">
+                {/* Connecting vertical line behind the icon dots */}
+                <div
+                  aria-hidden="true"
+                  className="absolute left-5 top-5 bottom-5 w-px bg-sage-dark/25"
+                />
+                <div className="flex flex-col gap-8">
+                  {[
+                    { time: "6:00", key: "zaffaGroom" as const, Icon: Music2 },
+                    { time: "7:00", key: "zaffaBride" as const, Icon: Heart },
+                    { time: "9:00", key: "ceremonyStart" as const, Icon: PartyPopper },
+                    { time: "12:00", key: "ceremonyEnd" as const, Icon: Flag },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.key}
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.7 }}
+                      transition={{ duration: 0.5, delay: i * 0.18, ease: "easeOut" }}
+                      className="relative flex items-center gap-4"
                     >
-                      {t(item.key)}
-                    </span>
-                  </div>
-                ))}
+                      <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-dark text-white shadow-sm">
+                        <item.Icon className="h-4 w-4" />
+                      </span>
+                      <div className="flex flex-1 items-baseline justify-between gap-3">
+                        <span dir="ltr" className="font-display text-base font-bold text-ink">
+                          {item.time}
+                        </span>
+                        <span
+                          className={`text-sm font-semibold text-ink ${lang === "ar" ? "font-arabic" : "font-body"}`}
+                        >
+                          {t(item.key)}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
-            
-            
+
             <p
               dir="rtl"
               className="font-arabic mt-8 px-6 text-center text-base font-semibold leading-relaxed text-ink md:text-lg"
