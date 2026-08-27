@@ -133,69 +133,65 @@ export function HeroSection() {
               <div className="mx-auto mb-3 h-px w-12 bg-sepia/50" />
               <p
                 dir="rtl"
-                className="font-arabic mb-3 text-xl font-bold leading-relaxed text-sepia md:text-2xl"
+                className="font-arabic mb-3 text-2xl font-bold leading-relaxed text-sepia md:text-3xl"
               >
                 بسم الله الرحمن الرحيم
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-3 text-base leading-relaxed text-sepia/90 md:text-lg"
+                className="font-arabic mb-3 text-lg leading-relaxed text-sepia/90 md:text-xl"
               >
                 ﴿ ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها ﴾
               </p>
               <div className="mx-auto mb-4 h-px w-12 bg-sepia/50" />
               <p
                 dir="rtl"
-                className="font-arabic-ui mb-5 text-xl font-bold leading-relaxed text-ink md:text-2xl"
+                className="font-arabic-ui mb-5 text-2xl font-bold leading-relaxed text-ink md:text-3xl"
               >
                 تتشرف
               </p>
               <div dir="rtl" className="mb-5 flex items-center justify-center gap-4">
                 <div className="flex-1 text-center">
-                  <p className="font-arabic-ui mb-1 text-base leading-relaxed text-ink/90 md:text-lg">
+                  <p className="font-arabic-ui mb-1 text-lg leading-relaxed text-ink/90 md:text-xl">
                     عائلة المرحوم
                   </p>
-                  <p className="font-arabic-ui text-xl font-bold leading-snug text-ink md:text-2xl">
+                  <p className="font-arabic-ui text-2xl font-bold leading-snug text-ink md:text-3xl">
                     وليد عيسى بطاح
                   </p>
                 </div>
-                <span className="font-arabic-ui text-2xl font-bold text-ink/70 md:text-3xl">
+                <span className="font-arabic-ui text-3xl font-bold text-ink/70 md:text-4xl">
                   و
                 </span>
                 <div className="flex-1 text-center">
-                  <p className="font-arabic-ui mb-1 text-base leading-relaxed text-ink/90 md:text-lg">
+                  <p className="font-arabic-ui mb-1 text-lg leading-relaxed text-ink/90 md:text-xl">
                     عائلة السيد
                   </p>
-                  <p className="font-arabic-ui text-xl font-bold leading-snug text-ink md:text-2xl">
+                  <p className="font-arabic-ui text-2xl font-bold leading-snug text-ink md:text-3xl">
                     عبدالله محمد أبو أرميلة
                   </p>
                 </div>
               </div>
               <p
                 dir="rtl"
-                className="font-arabic-ui mb-5 text-xl font-bold leading-relaxed text-ink md:text-2xl"
+                className="font-arabic-ui mb-5 text-2xl font-bold leading-relaxed text-ink md:text-3xl"
               >
                 بدعوتكم لحضور حفل زفاف نجليهما
               </p>
               <h1
-                className={`mb-2 text-5xl font-bold text-ink md:text-6xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
+                className={`mb-2 text-6xl font-bold text-ink md:text-7xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
               >
                 {t("coupleNames")}
               </h1>
-              <p className="font-display mb-3 text-lg font-bold uppercase tracking-[0.25em] text-ink md:text-xl">
+              <p className="font-display mb-3 text-xl font-bold uppercase tracking-[0.25em] text-ink md:text-2xl">
                 {WEDDING.dateLabel}
               </p>
-              <p
-                className={`mb-3 text-base font-bold tracking-[0.2em] text-ink md:text-lg ${lang === "ar" ? "font-arabic-ui" : "font-display uppercase"}`}
-              >
-                {t("venueName")}
-              </p>
+            
 
               <div className="mx-auto mb-1 h-px w-16 bg-ink/20" />
               <Countdown target={WEDDING.startIso} className="mt-2" />
               <p
                 dir="rtl"
-                className="font-arabic-ui mt-4 text-xl font-bold leading-relaxed text-ink md:text-2xl"
+                className="font-arabic-ui mt-4 text-2xl font-bold leading-relaxed text-ink md:text-3xl"
               >
                 للعُمر الذي لا يُعدّ
               </p>
