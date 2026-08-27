@@ -13,11 +13,11 @@ import ogImageAsset from "@/assets/og-preview.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Save The Date | Omar & ٌRahaf — 10.09.26" },
+      { title: "Save The Date | Omar & ٌRahaf — 10.09.2026" },
       {
         name: "description",
         content:
-          "Scratch the lace card to reveal our wedding announcement: Omar & Rahaf, 10.09.26 at Al Yousefi Palace, Amman.",
+          "Scratch the lace card to reveal our wedding announcement: Omar & Rahaf, 10.09.2026 at Al Yousefi Palace, Amman.",
       },
       { property: "og:title", content: "Save The Date | Omar & Rahaf" },
       {
