@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
-import { Clock, Calendar, Flag, Hand, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
+import { Clock, Calendar, Flag, Eraser, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Countdown } from "@/components/Countdown";
 import { ScratchCard } from "@/components/ScratchCard";
@@ -107,11 +107,11 @@ export function HeroSection() {
                   className="pointer-events-none absolute inset-0 z-40 flex flex-col items-center justify-center gap-2"
                 >
                   <motion.div
-                    animate={{ x: [-14, 14, -14], rotate: [-18, 18, -18] }}
-                    transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                    className="-translate-y-[5%] text-sepia drop-shadow-sm"
+                    animate={{ x: [-16, 16, -16], y: [-10, 10, -10] }}
+                    transition={{ duration: 0.9, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                    className="-translate-y-[5%] rotate-[-30deg] text-sepia drop-shadow-sm"
                   >
-                    <Hand className="h-8 w-8 md:h-9 md:w-9" />
+                    <Eraser className="h-8 w-8 md:h-9 md:w-9" />
                   </motion.div>
                   <motion.span
                     animate={{ opacity: [0.6, 1, 0.6] }}
