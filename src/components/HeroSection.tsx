@@ -211,7 +211,7 @@ export function HeroSection() {
               <Countdown target={WEDDING.startIso} className="mt-2" />
               <p
                 dir="rtl"
-                className="font-arabic-ui mt-4 text-2xl font-bold leading-relaxed text-ink md:text-3xl"
+                className="font-arabic mt-4 text-2xl font-bold leading-relaxed text-ink md:text-3xl"
               >
                 للعُمر الذي لا يُعدّ
               </p>
