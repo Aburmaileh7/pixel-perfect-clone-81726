@@ -193,7 +193,7 @@ export function HeroSection() {
               </h1>
               <p
                 dir="rtl"
-                className="font-arabic-ui mb-2 text-lg font-semibold leading-relaxed text-ink/90 md:text-xl"
+                className="font-arabic-ui mb-2 mt-3 text-lg font-semibold leading-relaxed text-ink/90 md:text-xl"
               >
                 وذلك بمشيئة الله تعالى
               </p>
