@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
-import { Clock, Calendar, Flag, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
+import { Clock, Calendar, Flag, Hand, Heart, MapPin, Music2, PartyPopper } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Countdown } from "@/components/Countdown";
 import { ScratchCard } from "@/components/ScratchCard";
@@ -104,12 +104,19 @@ export function HeroSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center"
+                  className="pointer-events-none absolute inset-0 z-40 flex flex-col items-center justify-center gap-2"
                 >
+                  <motion.div
+                    animate={{ x: [-14, 14, -14], rotate: [-18, 18, -18] }}
+                    transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                    className="-translate-y-[5%] text-sepia drop-shadow-sm"
+                  >
+                    <Hand className="h-8 w-8 md:h-9 md:w-9" />
+                  </motion.div>
                   <motion.span
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                    className="font-display max-w-[82%] -translate-y-[5%] whitespace-pre-line text-center text-[13.5px] font-semibold uppercase tracking-[0.25em] text-sepia md:text-[15.5px]"
+                    className="font-display max-w-[82%] whitespace-pre-line text-center text-[13.5px] font-semibold uppercase tracking-[0.25em] text-sepia md:text-[15.5px]"
                   >
                     {t("scratchToReveal")}
                   </motion.span>
