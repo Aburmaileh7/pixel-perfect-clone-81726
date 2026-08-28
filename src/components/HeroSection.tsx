@@ -167,7 +167,7 @@ export function HeroSection() {
                     عائلة السيد
                   </p>
                   <p className="font-arabic-ui text-2xl font-bold leading-snug text-ink md:text-3xl">
-                    عبدالله محمد أبو أرميلة
+                    عبدالله أبوأرميلة
                   </p>
                 </div>
               </div>
