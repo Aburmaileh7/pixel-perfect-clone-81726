@@ -164,7 +164,9 @@ export function HeroSection() {
                     عائلة المرحوم
                   </p>
                   <p className="font-arabic-ui text-2xl font-bold leading-snug text-ink md:text-3xl">
-                    وليد عيسى بطاح
+                    وليد عيسى
+                    <br />
+                    بطاح
                   </p>
                 </div>
                 <span className="font-arabic-ui text-3xl font-bold text-ink/70 md:text-4xl">
@@ -175,7 +177,9 @@ export function HeroSection() {
                     عائلة السيد
                   </p>
                   <p className="font-arabic-ui text-2xl font-bold leading-snug text-ink md:text-3xl">
-                    عبدالله أبوأرميلة
+                    عبدالله محمد
+                    <br />
+                    أبو أرميلة
                   </p>
                 </div>
               </div>
