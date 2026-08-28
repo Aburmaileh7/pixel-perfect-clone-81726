@@ -147,7 +147,7 @@ export function HeroSection() {
               </p>
               <p
                 dir="rtl"
-                className="font-arabic mb-3 text-lg leading-relaxed text-sepia/90 md:text-xl"
+                className="font-arabic mb-3 whitespace-nowrap text-[clamp(0.6rem,3.4vw,1.125rem)] leading-relaxed text-sepia/90"
               >
                 ﴿ ومن آياته أن خلق لكم من أنفسكم أزواجا لتسكنوا إليها ﴾
               </p>
