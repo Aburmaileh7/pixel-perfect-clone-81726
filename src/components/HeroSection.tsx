@@ -189,7 +189,15 @@ export function HeroSection() {
                 className={`mb-2 text-6xl font-bold text-ink md:text-7xl ${lang === "ar" ? "font-arabic" : "font-names italic"}`}
               >
                 {t("coupleNames")}
+                
               </h1>
+              <p
+                dir="rtl"
+                className="font-arabic-ui mb-2 text-lg font-semibold leading-relaxed text-ink/90 md:text-xl"
+              >
+                وذلك بمشيئة الله تعالى
+              </p>
+
               <p className="font-display mb-3 text-xl font-bold uppercase tracking-[0.25em] text-ink md:text-2xl">
                 {WEDDING.dateLabel}
               </p>
