@@ -34,8 +34,8 @@ const pad = (value: number) => value.toString().padStart(2, "0");
 /** A single flip-in unit (value + label). */
 function Unit({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex min-w-[3.1rem] flex-col items-center md:min-w-[3.6rem]">
-      <div className="relative h-[1.6em] overflow-hidden text-[26px] leading-[1.6em] tabular-nums text-ink md:text-[30px]">
+    <div className="flex min-w-[3.6rem] flex-col items-center md:min-w-[4.2rem]">
+      <div className="relative h-[1.6em] overflow-hidden text-[34px] font-bold leading-[1.6em] tabular-nums text-ink md:text-[40px]">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
             key={value}
@@ -49,7 +49,7 @@ function Unit({ value, label }: { value: string; label: string }) {
           </motion.span>
         </AnimatePresence>
       </div>
-      <span className="font-display mt-1 text-[8.5px] uppercase tracking-[0.3em] text-ink/70 md:text-[9.5px]">
+      <span className="font-display mt-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/70 md:text-[11px]">
         {label}
       </span>
     </div>
@@ -96,15 +96,15 @@ export function Countdown({ target, className = "" }: CountdownProps) {
       aria-label={`${parts.days} ${t("days")}, ${parts.hours} ${t("hours")}, ${parts.mins} ${t("mins")}, ${parts.secs} ${t("secs")}`}
     >
       <Unit value={String(parts.days)} label={t("days")} />
-      <span className="font-names pt-[0.15em] text-[24px] italic leading-[1.6em] text-ink/35 md:text-[28px]">
+      <span className="font-names pt-[0.15em] text-[30px] italic leading-[1.6em] text-ink/35 md:text-[36px]">
         :
       </span>
       <Unit value={pad(parts.hours)} label={t("hours")} />
-      <span className="font-names pt-[0.15em] text-[24px] italic leading-[1.6em] text-ink/35 md:text-[28px]">
+      <span className="font-names pt-[0.15em] text-[30px] italic leading-[1.6em] text-ink/35 md:text-[36px]">
         :
       </span>
       <Unit value={pad(parts.mins)} label={t("mins")} />
-      <span className="font-names pt-[0.15em] text-[24px] italic leading-[1.6em] text-ink/35 md:text-[28px]">
+      <span className="font-names pt-[0.15em] text-[30px] italic leading-[1.6em] text-ink/35 md:text-[36px]">
         :
       </span>
       <Unit value={pad(parts.secs)} label={t("secs")} />
