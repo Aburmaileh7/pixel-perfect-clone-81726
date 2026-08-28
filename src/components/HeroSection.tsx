@@ -107,9 +107,10 @@ export function HeroSection() {
                   className="pointer-events-none absolute inset-0 z-40 flex flex-col items-center justify-center gap-2"
                 >
                   <motion.div
-                    animate={{ x: [-16, 16, -16], y: [-10, 10, -10] }}
+                    animate={{ x: [-16, 16, -16], y: [-16, 16, -16] }}
+                    style={{ rotate: -35 }}
                     transition={{ duration: 0.9, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                    className="-translate-y-[5%] rotate-[-30deg] text-sepia drop-shadow-sm"
+                    className="-translate-y-[5%] text-sepia drop-shadow-sm"
                   >
                     <Eraser className="h-8 w-8 md:h-9 md:w-9" />
                   </motion.div>
